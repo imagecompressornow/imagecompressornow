@@ -300,15 +300,17 @@
 </header>
 
 <main>
-<div class="page-head"><div class="wrap narrow">
+<div class="page-head"><div class="wrap">
   <div class="crumbs"><a href="/">Home</a> / <a href="/blog">Blog</a> / How-to</div>
+  <span class="tag-pill">How-to</span>
   <h1>How to Compress an Image to 100 KB or 200 KB (Step by Step)</h1>
   <p>Upload forms love tiny limits. Here is a repeatable way to land under the number without wrecking the picture.</p>
-  <div class="byline">By the ImageCompressorNow team &middot; Published 2026-11-12 &middot; Updated 2026-11-12 &middot; 7 min read</div>
+  <div class="byline"><span>By the ImageCompressorNow team</span><span>Published 2026-11-12</span><span>Updated 2026-11-12</span><span>7 min read</span></div>
 </div></div>
-<article class="wrap narrow prose">
+<div class="wrap article-layout">
+<article class="prose">
 <div class="tldr"><strong>Short answer</strong><p>To get an image under 100 KB, shrink its width to roughly 600 to 800 pixels, save it as JPEG at about 70 percent quality, and check the file size. If it is still too large, reduce the width again before lowering quality further. For 200 KB, start around 900 to 1200 pixels at 75 percent. A browser-based compressor keeps the photo on your device.</p></div>
-<nav class="toc" aria-label="In this guide"><strong>In this guide</strong><ol><li><a href="#why-resizing-beats-the-quality-slider">Why resizing beats the quality slider</a></li><li><a href="#rough-starting-points">Rough starting points</a></li><li><a href="#aim-below-the-limit-not-on-it">Aim below the limit, not on it</a></li><li><a href="#special-cases">Special cases</a></li><li><a href="#mistakes-that-waste-time">Mistakes that waste time</a></li><li><a href="#is-it-safe-to-do-this-online">Is it safe to do this online?</a></li><li><a href="#quick-answers">Quick answers</a></li><li><a href="#sources">Sources and further reading</a></li></ol></nav>
+<nav class="toc toc-inline" aria-label="In this guide (inline)"><strong>In this guide</strong><ol class="toc-list"><li><a href="#why-resizing-beats-the-quality-slider">Why resizing beats the quality slider</a></li><li><a href="#steps">Step by step: get a photo under 100 KB</a></li><li><a href="#rough-starting-points">Rough starting points</a></li><li><a href="#aim-below-the-limit-not-on-it">Aim below the limit, not on it</a></li><li><a href="#special-cases">Special cases</a></li><li><a href="#mistakes-that-waste-time">Mistakes that waste time</a></li><li><a href="#is-it-safe-to-do-this-online">Is it safe to do this online?</a></li><li><a href="#quick-answers">Quick answers</a></li><li><a href="#sources">Sources and further reading</a></li></ol></nav>
 
 <p>Government portals, exam registrations, job applications and visa sites often cap uploads at 100 KB, 200 KB or 500 KB. Phone photos are typically 2 to 6 MB, so the gap is large. With the right order of steps you can usually close it in two or three tries.</p>
 
@@ -366,24 +368,24 @@
 <p>With this tool the picture never leaves your device, because the compression runs in your browser using the standard <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/toBlob" rel="noopener" target="_blank">canvas encoder</a>. That matters for ID photos and signed documents. Details are in our <a href="/privacy">privacy policy</a>. If a file refuses to shrink, read <a href="/blog/compressed-image-bigger-than-original">why a compressed image can come out bigger</a>.</p>
 
 <h2 id="quick-answers">Quick answers</h2>
-<h3>What is the fastest way to get an image under 100 KB?</h3>
-<p>Set the output to JPEG, limit the width to around 800 pixels and use roughly 70 percent quality. Check the size on the result row, then adjust the width first and the quality second.</p>
-<h3>Will the image look bad at 100 KB?</h3>
-<p>Not at form-upload sizes. A 600 to 800 pixel wide photo at moderate quality looks fine on screen. It would look soft if printed large, but upload forms rarely need that.</p>
-<h3>Why does the form reject my WebP file?</h3>
-<p>Many older upload systems accept only JPG or PNG. Choose JPEG as the output format in the tool instead of WebP.</p>
-<h3>Why is my file still over the limit when it shows 100 KB?</h3>
-<p>Some systems count a kilobyte as 1,000 bytes and others as 1,024. Aim for about 90 to 95 KB when the cap is 100 KB to stay safely under on every system.</p>
-<h3>Can I compress several photos to a target size at once?</h3>
-<p>Yes. Add them all together, set one maximum width and quality, and review each file's size. Change the settings and every file updates automatically.</p>
+<div class="qa-list">
+<div class="qa"><h3>What is the fastest way to get an image under 100 KB?</h3><p>Set the output to JPEG, limit the width to around 800 pixels and use roughly 70 percent quality. Check the size on the result row, then adjust the width first and the quality second.</p></div>
+<div class="qa"><h3>Will the image look bad at 100 KB?</h3><p>Not at form-upload sizes. A 600 to 800 pixel wide photo at moderate quality looks fine on screen. It would look soft if printed large, but upload forms rarely need that.</p></div>
+<div class="qa"><h3>Why does the form reject my WebP file?</h3><p>Many older upload systems accept only JPG or PNG. Choose JPEG as the output format in the tool instead of WebP.</p></div>
+<div class="qa"><h3>Why is my file still over the limit when it shows 100 KB?</h3><p>Some systems count a kilobyte as 1,000 bytes and others as 1,024. Aim for about 90 to 95 KB when the cap is 100 KB to stay safely under on every system.</p></div>
+<div class="qa"><h3>Can I compress several photos to a target size at once?</h3><p>Yes. Add them all together, set one maximum width and quality, and review each file's size. Change the settings and every file updates automatically.</p></div>
+</div>
 <h2 id="sources">Sources and further reading</h2>
-<ul>
+<ul class="sources">
 <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/toBlob" rel="noopener" target="_blank">MDN: HTMLCanvasElement.toBlob()</a></li>
 <li><a href="https://en.wikipedia.org/wiki/JPEG" rel="noopener" target="_blank">Wikipedia: JPEG</a></li>
 <li><a href="https://developers.google.com/speed/webp/docs/webp_study" rel="noopener" target="_blank">Google WebP compression study</a></li>
 </ul>
+<div class="related"><strong>Keep reading</strong><div class="related-grid"><a class="related-card" href="/blog/compressed-image-bigger-than-original"><span>Troubleshooting</span><b>Why Is My Compressed Image Bigger Than the Original?</b></a></div></div>
 <div class="cta"><h2>Try it on your own image</h2><p>Compress in your browser. Nothing is uploaded, and there is nothing to install.</p><a class="btn" href="/">Open the image compressor</a></div>
 </article>
+<aside class="side" aria-label="Sidebar"><nav class="toc" aria-label="In this guide"><strong>In this guide</strong><ol class="toc-list"><li><a href="#why-resizing-beats-the-quality-slider">Why resizing beats the quality slider</a></li><li><a href="#steps">Step by step: get a photo under 100 KB</a></li><li><a href="#rough-starting-points">Rough starting points</a></li><li><a href="#aim-below-the-limit-not-on-it">Aim below the limit, not on it</a></li><li><a href="#special-cases">Special cases</a></li><li><a href="#mistakes-that-waste-time">Mistakes that waste time</a></li><li><a href="#is-it-safe-to-do-this-online">Is it safe to do this online?</a></li><li><a href="#quick-answers">Quick answers</a></li><li><a href="#sources">Sources and further reading</a></li></ol></nav><div class="side-cta"><b>Compress an image now</b><p>Free, private and nothing is uploaded.</p><a class="btn" href="/">Open the compressor</a></div></aside>
+</div>
 </main>
 
 <footer class="site-footer">
@@ -399,5 +401,6 @@
   </div>
 </footer>
 
+<script src="/page.js" defer></script>
 </body>
 </html>

@@ -240,15 +240,17 @@
 </header>
 
 <main>
-<div class="page-head"><div class="wrap narrow">
+<div class="page-head"><div class="wrap">
   <div class="crumbs"><a href="/">Home</a> / <a href="/blog">Blog</a> / Troubleshooting</div>
+  <span class="tag-pill">Troubleshooting</span>
   <h1>Why Is My Compressed Image Bigger Than the Original? 7 Causes and Fixes</h1>
   <p>It feels impossible, but it happens all the time. Here is what is really going on and how to get a smaller file.</p>
-  <div class="byline">By the ImageCompressorNow team &middot; Published 2026-11-12 &middot; Updated 2026-11-12 &middot; 7 min read</div>
+  <div class="byline"><span>By the ImageCompressorNow team</span><span>Published 2026-11-12</span><span>Updated 2026-11-12</span><span>7 min read</span></div>
 </div></div>
-<article class="wrap narrow prose">
+<div class="wrap article-layout">
+<article class="prose">
 <div class="tldr"><strong>Short answer</strong><p>A compressed image gets bigger when it is re-encoded less efficiently than the original: quality set too high, a photo saved as PNG, an already-optimized file re-encoded, or an image enlarged. For photos, use WebP or JPEG at 75 to 85 percent, keep PNG for flat graphics, and limit the width. If nothing helps, keep the original file.</p></div>
-<nav class="toc" aria-label="In this guide"><strong>In this guide</strong><ol><li><a href="#1-the-original-was-already-highly-optimized">1. The original was already highly optimized</a></li><li><a href="#2-quality-is-set-too-high">2. Quality is set too high</a></li><li><a href="#3-you-converted-a-photo-to-png">3. You converted a photo to PNG</a></li><li><a href="#4-a-screenshot-or-graphic-was-converted-to-jpeg-at-high-quality">4. A screenshot or graphic was converted to JPEG at high quality</a></li><li><a href="#5-the-image-was-enlarged">5. The image was enlarged</a></li><li><a href="#6-heavy-grain-or-noise">6. Heavy grain or noise</a></li><li><a href="#7-a-webp-or-avif-conversion-that-was-not-a-win">7. A WebP or AVIF conversion that was not a win</a></li><li><a href="#diagnose-your-file-in-a-minute">Diagnose your file in a minute</a></li><li><a href="#choose-the-right-format-first">Choose the right format first</a></li><li><a href="#does-removing-metadata-make-a-file-bigger">Does removing metadata make a file bigger?</a></li><li><a href="#try-the-fixes-in-order">Try the fixes in order</a></li><li><a href="#quick-answers">Quick answers</a></li><li><a href="#sources">Sources and further reading</a></li></ol></nav>
+<nav class="toc toc-inline" aria-label="In this guide (inline)"><strong>In this guide</strong><ol class="toc-list"><li><a href="#1-the-original-was-already-highly-optimized">1. The original was already highly optimized</a></li><li><a href="#2-quality-is-set-too-high">2. Quality is set too high</a></li><li><a href="#3-you-converted-a-photo-to-png">3. You converted a photo to PNG</a></li><li><a href="#4-a-screenshot-or-graphic-was-converted-to-jpeg-at-high-quality">4. A screenshot or graphic was converted to JPEG at high quality</a></li><li><a href="#5-the-image-was-enlarged">5. The image was enlarged</a></li><li><a href="#6-heavy-grain-or-noise">6. Heavy grain or noise</a></li><li><a href="#7-a-webp-or-avif-conversion-that-was-not-a-win">7. A WebP or AVIF conversion that was not a win</a></li><li><a href="#diagnose-your-file-in-a-minute">Diagnose your file in a minute</a></li><li><a href="#choose-the-right-format-first">Choose the right format first</a></li><li><a href="#does-removing-metadata-make-a-file-bigger">Does removing metadata make a file bigger?</a></li><li><a href="#try-the-fixes-in-order">Try the fixes in order</a></li><li><a href="#quick-answers">Quick answers</a></li><li><a href="#sources">Sources and further reading</a></li></ol></nav>
 
 <p>You drop a photo into a compressor, wait a second, and the "compressed" file is larger than the one you started with. That is not a bug in your browser. It is a consequence of how image formats work. Below are the seven most common causes, from most to least likely, followed by a quick way to diagnose your own file.</p>
 
@@ -307,25 +309,25 @@
 <p>Need a specific limit, like 100 KB for a form? See <a href="/blog/compress-image-to-100kb">how to compress an image to 100 KB or 200 KB</a>.</p>
 
 <h2 id="quick-answers">Quick answers</h2>
-<h3>Why did my PNG get bigger after compression?</h3>
-<p>PNG is lossless, so re-encoding it rarely saves much and can add a few bytes. Switch the output to WebP or JPEG for photos, or reduce the width.</p>
-<h3>Is a 100% quality setting lossless?</h3>
-<p>No. In JPEG and WebP it is still lossy, just very conservative, and it often produces a file much larger than 85 percent quality with almost no visible difference.</p>
-<h3>Does converting to WebP always make the file smaller?</h3>
-<p>Usually for photos, but not always. Small images, already-optimized files and some palette-based PNGs can come out larger as WebP. Compare the result with the original and keep the smaller one.</p>
-<h3>Can compressing twice make the image worse?</h3>
-<p>Yes. Each lossy pass discards more detail. Always return to the original file when you adjust settings instead of recompressing the output.</p>
-<h3>What should I do when a file will not get any smaller?</h3>
-<p>Lower the maximum width. Reducing pixel count is the strongest way to cut size when quality changes stop helping.</p>
+<div class="qa-list">
+<div class="qa"><h3>Why did my PNG get bigger after compression?</h3><p>PNG is lossless, so re-encoding it rarely saves much and can add a few bytes. Switch the output to WebP or JPEG for photos, or reduce the width.</p></div>
+<div class="qa"><h3>Is a 100% quality setting lossless?</h3><p>No. In JPEG and WebP it is still lossy, just very conservative, and it often produces a file much larger than 85 percent quality with almost no visible difference.</p></div>
+<div class="qa"><h3>Does converting to WebP always make the file smaller?</h3><p>Usually for photos, but not always. Small images, already-optimized files and some palette-based PNGs can come out larger as WebP. Compare the result with the original and keep the smaller one.</p></div>
+<div class="qa"><h3>Can compressing twice make the image worse?</h3><p>Yes. Each lossy pass discards more detail. Always return to the original file when you adjust settings instead of recompressing the output.</p></div>
+<div class="qa"><h3>What should I do when a file will not get any smaller?</h3><p>Lower the maximum width. Reducing pixel count is the strongest way to cut size when quality changes stop helping.</p></div>
+</div>
 <h2 id="sources">Sources and further reading</h2>
-<ul>
+<ul class="sources">
 <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/toBlob" rel="noopener" target="_blank">MDN: HTMLCanvasElement.toBlob()</a></li>
 <li><a href="https://developers.google.com/speed/webp/docs/webp_study" rel="noopener" target="_blank">Google WebP compression study</a></li>
 <li><a href="https://en.wikipedia.org/wiki/PNG" rel="noopener" target="_blank">Wikipedia: PNG</a></li>
 <li><a href="https://en.wikipedia.org/wiki/JPEG" rel="noopener" target="_blank">Wikipedia: JPEG</a></li>
 </ul>
+<div class="related"><strong>Keep reading</strong><div class="related-grid"><a class="related-card" href="/blog/compress-image-to-100kb"><span>How-to</span><b>How to Compress an Image to 100 KB or 200 KB</b></a></div></div>
 <div class="cta"><h2>Try it on your own image</h2><p>Compress in your browser. Nothing is uploaded, and there is nothing to install.</p><a class="btn" href="/">Open the image compressor</a></div>
 </article>
+<aside class="side" aria-label="Sidebar"><nav class="toc" aria-label="In this guide"><strong>In this guide</strong><ol class="toc-list"><li><a href="#1-the-original-was-already-highly-optimized">1. The original was already highly optimized</a></li><li><a href="#2-quality-is-set-too-high">2. Quality is set too high</a></li><li><a href="#3-you-converted-a-photo-to-png">3. You converted a photo to PNG</a></li><li><a href="#4-a-screenshot-or-graphic-was-converted-to-jpeg-at-high-quality">4. A screenshot or graphic was converted to JPEG at high quality</a></li><li><a href="#5-the-image-was-enlarged">5. The image was enlarged</a></li><li><a href="#6-heavy-grain-or-noise">6. Heavy grain or noise</a></li><li><a href="#7-a-webp-or-avif-conversion-that-was-not-a-win">7. A WebP or AVIF conversion that was not a win</a></li><li><a href="#diagnose-your-file-in-a-minute">Diagnose your file in a minute</a></li><li><a href="#choose-the-right-format-first">Choose the right format first</a></li><li><a href="#does-removing-metadata-make-a-file-bigger">Does removing metadata make a file bigger?</a></li><li><a href="#try-the-fixes-in-order">Try the fixes in order</a></li><li><a href="#quick-answers">Quick answers</a></li><li><a href="#sources">Sources and further reading</a></li></ol></nav><div class="side-cta"><b>Compress an image now</b><p>Free, private and nothing is uploaded.</p><a class="btn" href="/">Open the compressor</a></div></aside>
+</div>
 </main>
 
 <footer class="site-footer">
@@ -341,5 +343,6 @@
   </div>
 </footer>
 
+<script src="/page.js" defer></script>
 </body>
 </html>
