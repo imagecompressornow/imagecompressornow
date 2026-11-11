@@ -253,7 +253,13 @@
         : '';
       rerunAll();
     }));
+  const paintSlider = () => {
+    const pct = ((qualityInput.value - qualityInput.min) / (qualityInput.max - qualityInput.min)) * 100;
+    qualityInput.style.setProperty('--pct', pct + '%');
+  };
+  paintSlider();
   qualityInput.addEventListener('input', () => {
+    paintSlider();
     settings.quality = qualityInput.value / 100;
     qualityOut.textContent = qualityInput.value + '%';
     rerunAll();

@@ -7,9 +7,11 @@
 <meta name="description" content="Free online image compressor. Shrink JPG, PNG, WebP and HEIC in your browser. No upload, no signup, no watermark. Batch compress and save as ZIP.">
 <link rel="canonical" href="https://imagecompressornow.com/">
 <meta name="robots" content="index, follow, max-image-preview:large">
-<meta name="theme-color" content="#f4511e">
+<meta name="theme-color" content="#0a0807">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/favicon.svg">
+<link rel="preload" href="/fonts/bricolage-grotesque-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="ImageCompressorNow">
@@ -80,6 +82,19 @@
       "publisher": { "@id": "https://imagecompressornow.com/#org" }
     },
     {
+      "@type": "HowTo",
+      "@id": "https://imagecompressornow.com/#howto",
+      "name": "How to compress an image online for free",
+      "description": "Reduce the file size of JPG, PNG, WebP or HEIC pictures in your browser without uploading them.",
+      "totalTime": "PT1M",
+      "tool": [{ "@type": "HowToTool", "name": "ImageCompressorNow" }],
+      "step": [
+        { "@type": "HowToStep", "position": 1, "name": "Add your pictures", "text": "Drag them onto the drop area, pick them from your device, or paste a screenshot. You can add many files at once." },
+        { "@type": "HowToStep", "position": 2, "name": "Tune the result", "text": "Choose an output format, slide the quality and optionally set a maximum width. Results refresh automatically." },
+        { "@type": "HowToStep", "position": 3, "name": "Save the lighter files", "text": "Download a single image or the whole batch as one ZIP. Each row shows how many kilobytes you saved." }
+      ]
+    },
+    {
       "@type": "FAQPage",
       "@id": "https://imagecompressornow.com/#faq",
       "mainEntity": [
@@ -143,69 +158,88 @@
 </header>
 
 <main>
-  <section class="hero">
-    <div class="wrap">
-      <h1>Image Compressor</h1>
-      <p class="lead">Make JPG, PNG, WebP and HEIC pictures lighter in seconds. Everything happens inside your browser, so your photos stay on your device.</p>
-      <ul class="hero-badges">
-        <li>Free</li>
-        <li>No upload</li>
-        <li>No signup</li>
-        <li>Batch + ZIP</li>
-      </ul>
-    </div>
-  </section>
+  <div class="stage">
+    <div class="grid-bg" aria-hidden="true"></div>
 
-  <section class="tool" aria-label="Image compressor tool">
-    <div class="wrap">
-      <div class="tool-card">
-        <button type="button" class="drop" id="drop" aria-label="Choose images to compress, or drop them here">
-          <svg class="icon" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="dg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff8a1f"/><stop offset="1" stop-color="#e11d2a"/></linearGradient></defs><rect x="6" y="10" width="52" height="44" rx="10" fill="none" stroke="url(#dg)" stroke-width="4"/><circle cx="21" cy="25" r="5" fill="url(#dg)"/><path d="M10 48l15-15 10 10 8-8 11 11" fill="none" stroke="url(#dg)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <strong>Drop your images here</strong>
-          <span>or paste from clipboard · JPG, PNG, WebP, AVIF, HEIC</span><br>
-          <span class="btn">Select images</span>
-        </button>
-        <input type="file" id="file-input" accept="image/jpeg,image/png,image/webp,image/avif,.heic,.heif" multiple hidden>
-
-        <div class="controls">
-          <div class="field">
-            <span class="label" id="fmt-label">Output format</span>
-            <div class="chips" role="radiogroup" aria-labelledby="fmt-label">
-              <label class="chip"><input type="radio" name="format" value="image/webp" checked><span>WebP</span></label>
-              <label class="chip"><input type="radio" name="format" value="image/jpeg"><span>JPEG</span></label>
-              <label class="chip"><input type="radio" name="format" value="image/png"><span>PNG</span></label>
-              <label class="chip"><input type="radio" name="format" value="image/avif"><span>AVIF</span></label>
-              <label class="chip"><input type="radio" name="format" value="original"><span>Keep original</span></label>
-            </div>
-            <p class="hint" id="format-hint" aria-live="polite"></p>
-          </div>
-          <div class="field">
-            <label for="quality">Quality <output id="quality-out" for="quality">80%</output></label>
-            <input type="range" id="quality" min="10" max="100" step="1" value="80">
-            <p class="hint">Lower means smaller files.</p>
-          </div>
-          <div class="field">
-            <label for="max-width">Max width (px)</label>
-            <input type="number" id="max-width" min="0" step="1" inputmode="numeric" placeholder="Original size">
-            <p class="hint">Optional. Never enlarges an image.</p>
-          </div>
-        </div>
-
-        <div class="results" id="results" hidden aria-live="polite"></div>
-
-        <div class="summary" id="summary" hidden>
-          <p id="summary-text"></p>
-          <div class="btns">
-            <button type="button" class="btn small" id="zip-btn" hidden>Download all (ZIP)</button>
-            <button type="button" class="btn small ghost" id="clear-btn">Clear all</button>
-          </div>
-        </div>
+    <section class="hero">
+      <div class="wrap">
+        <span class="eyebrow-pill"><i aria-hidden="true"></i>Runs 100% in your browser. Nothing is uploaded.</span>
+        <h1>The <span class="grad">image compressor</span> that keeps your photos private</h1>
+        <p class="lead">Make JPG, PNG, WebP and HEIC pictures dramatically lighter in seconds. Your files are processed on your own device and never leave it.</p>
+        <ul class="hero-badges">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.7 2.7L16 9.5"/></svg>Free forever</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.7 2.7L16 9.5"/></svg>No signup</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.7 2.7L16 9.5"/></svg>No watermark</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.7 2.7L16 9.5"/></svg>Batch + ZIP</li>
+        </ul>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <section class="tool" aria-label="Image compressor tool">
+      <div class="wrap">
+        <div class="tool-card">
+          <button type="button" class="drop" id="drop" aria-label="Choose images to compress, or drop them here">
+            <span class="drop-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V5M7.5 9.5L12 5l4.5 4.5M5 19h14"/></svg></span>
+            <strong>Drop your images here</strong>
+            <span class="sub-line">or paste with <span class="kbd">Ctrl</span> + <span class="kbd">V</span> &nbsp;·&nbsp; JPG, PNG, WebP, AVIF, HEIC</span>
+            <span class="btn">Select images</span>
+          </button>
+          <input type="file" id="file-input" accept="image/jpeg,image/png,image/webp,image/avif,.heic,.heif" multiple hidden>
+
+          <div class="controls">
+            <div class="field">
+              <span class="label" id="fmt-label">Output format</span>
+              <div class="chips" role="radiogroup" aria-labelledby="fmt-label">
+                <label class="chip"><input type="radio" name="format" value="image/webp" checked><span>WebP</span></label>
+                <label class="chip"><input type="radio" name="format" value="image/jpeg"><span>JPEG</span></label>
+                <label class="chip"><input type="radio" name="format" value="image/png"><span>PNG</span></label>
+                <label class="chip"><input type="radio" name="format" value="image/avif"><span>AVIF</span></label>
+                <label class="chip"><input type="radio" name="format" value="original"><span>Keep original</span></label>
+              </div>
+              <p class="hint" id="format-hint" aria-live="polite"></p>
+            </div>
+            <div class="field">
+              <label for="quality">Quality <output id="quality-out" for="quality">80%</output></label>
+              <input type="range" id="quality" min="10" max="100" step="1" value="80">
+              <p class="hint">Lower means smaller files.</p>
+            </div>
+            <div class="field">
+              <label for="max-width">Max width (px)</label>
+              <input type="number" id="max-width" min="0" step="1" inputmode="numeric" placeholder="Original size">
+              <p class="hint">Optional. Never enlarges an image.</p>
+            </div>
+          </div>
+
+          <div class="results" id="results" hidden aria-live="polite"></div>
+
+          <div class="summary" id="summary" hidden>
+            <p id="summary-text"></p>
+            <div class="btns">
+              <button type="button" class="btn small" id="zip-btn" hidden>Download all (ZIP)</button>
+              <button type="button" class="btn small ghost" id="clear-btn">Clear all</button>
+            </div>
+          </div>
+        </div>
+
+        <ul class="trust">
+          <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/></svg></span><span><b>Private by design</b>Files never leave your device</span></li>
+          <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 3L5 14h6l-1 7 8-11h-6l1-7z"/></svg></span><span><b>Instant results</b>No upload or download wait</span></li>
+          <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 13l9 5 9-5"/></svg></span><span><b>Batch ready</b>Many files, one ZIP</span></li>
+          <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="3" width="10" height="18" rx="2.5"/><path d="M11 18h2"/></svg></span><span><b>iPhone friendly</b>HEIC photos supported</span></li>
+        </ul>
+      </div>
+    </section>
+  </div>
 
   <div class="wrap">
+    <ul class="stats" aria-label="Key facts">
+      <li><b>0 bytes</b><span>of your images are ever sent to a server. Everything runs locally.</span></li>
+      <li><b>4 formats</b><span>to export: WebP, JPEG, PNG and AVIF, plus HEIC as input.</span></li>
+      <li><b>50–80%</b><span>smaller is what large camera photos often reach as WebP at about 80% quality.</span></li>
+    </ul>
+
     <section class="block" id="how">
+      <span class="eyebrow">How it works</span>
       <h2>How to compress an image in three steps</h2>
       <p class="sub">No account, no queue, no waiting for an upload to finish.</p>
       <ol class="steps">
@@ -216,19 +250,39 @@
     </section>
 
     <section class="block" id="why">
+      <span class="eyebrow">Why it is different</span>
       <h2>Why use this image compressor</h2>
       <p class="sub">Smaller images load faster, fit into upload limits and cost less to store. Here is what you get.</p>
       <ul class="features">
-        <li><h3>Your files stay put</h3><p>The work is done by your own browser. Nothing is sent to a server, so private photos, IDs and client work remain private.</p></li>
-        <li><h3>Made for batches</h3><p>Drop a whole folder's worth of photos and watch them shrink side by side, then download them together.</p></li>
-        <li><h3>Control, not guesswork</h3><p>Choose the format, quality and width yourself and see the before and after size on every file.</p></li>
-        <li><h3>Handles iPhone photos</h3><p>HEIC pictures are converted to a standard format first, so they open everywhere after compression.</p></li>
-        <li><h3>Metadata is stripped</h3><p>Camera model and GPS position are dropped during re-encoding, which also trims a few extra bytes.</p></li>
-        <li><h3>Honest results</h3><p>If a file is already as small as it can reasonably get, you receive the original back instead of a bigger copy.</p></li>
+        <li class="dark"><span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/></svg></span><h3>Your files stay put</h3><p>The work is done by your own browser. Nothing is sent to a server, so private photos, IDs and client work remain private.</p></li>
+        <li><span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 13l9 5 9-5"/></svg></span><h3>Made for batches</h3><p>Drop a whole folder's worth of photos and watch them shrink side by side, then download them together.</p></li>
+        <li><span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h2M10 17h10"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="17" r="2"/></svg></span><h3>Control, not guesswork</h3><p>Choose the format, quality and width yourself and see the before and after size on every file.</p></li>
+        <li><span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="3" width="10" height="18" rx="2.5"/><path d="M11 18h2"/></svg></span><h3>Handles iPhone photos</h3><p>HEIC pictures are converted to a standard format first, so they open everywhere after compression.</p></li>
+        <li><span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l8-8h7v7l-8 8-7-7z"/><circle cx="15" cy="9" r="1.2"/></svg></span><h3>Metadata is stripped</h3><p>Camera model and GPS position are dropped during re-encoding, which also trims a few extra bytes.</p></li>
+        <li><span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.7 2.7L16 9.5"/></svg></span><h3>Honest results</h3><p>If a file is already as small as it can reasonably get, you receive the original back instead of a bigger copy.</p></li>
       </ul>
     </section>
 
+    <section class="block" id="compare">
+      <span class="eyebrow">Local vs upload</span>
+      <h2>Local compression vs upload-based tools</h2>
+      <p class="sub">Most online compressors send your picture to a server first. Doing the work in your browser changes a few things.</p>
+      <div class="table-wrap">
+        <table class="compare">
+          <thead><tr><th>What matters</th><th>ImageCompressorNow</th><th>Typical upload-based tools</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Where files are processed</strong></td><td class="yes">On your device, inside the browser</td><td class="no">On a remote server</td></tr>
+            <tr><td><strong>Who receives a copy</strong></td><td class="yes">Nobody. Files never leave your device</td><td class="no">The service must receive and handle your file</td></tr>
+            <tr><td><strong>Waiting time</strong></td><td class="yes">No upload or download step</td><td class="no">Upload and download time on top of processing</td></tr>
+            <tr><td><strong>Batch and size limits</strong></td><td class="yes">Set only by your device's memory</td><td class="no">Often capped per file, per batch or per day</td></tr>
+            <tr><td><strong>Account or watermark</strong></td><td class="yes">None</td><td class="no">Sometimes required for bigger batches</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
     <section class="block" id="formats">
+      <span class="eyebrow">Formats</span>
       <h2>Which format gives the smallest file?</h2>
       <p class="sub">A quick guide to the options in the tool.</p>
       <div class="table-wrap">
@@ -245,6 +299,7 @@
     </section>
 
     <section class="block faq" id="faq">
+      <span class="eyebrow">FAQ</span>
       <h2>Frequently asked questions</h2>
       <p class="sub">Short answers to the things people ask most.</p>
       <details><summary>Is this image compressor really free?</summary><p>Yes. There is no signup, no watermark and no daily quota. The only limit is the memory of your own device, since the work happens there.</p></details>
@@ -258,7 +313,7 @@
 
     <section class="cta">
       <h2>Need to hit an exact file size?</h2>
-      <p>Our guides explain how to land under common upload limits and avoid the usual compression mistakes.</p>
+      <p>Our guides explain how to land under common upload limits and avoid the usual compression mistakes, like <a href="/blog/compress-image-to-100kb" style="color:#fff">getting a photo under 100 KB</a>.</p>
       <a class="btn" href="/blog">Read the guides</a>
     </section>
   </div>
