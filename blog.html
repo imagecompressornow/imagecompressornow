@@ -15,7 +15,11 @@
 <meta property="og:title" content="Image Compression Guides and Tips | ImageCompressorNow">
 <meta property="og:description" content="Practical guides on compressing images: hitting upload size limits, avoiding bigger files, and choosing the right format.">
 <meta property="og:url" content="https://imagecompressornow.com/blog">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="https://imagecompressornow.com/og/home.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:image" content="https://imagecompressornow.com/og/home.png">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Image Compression Guides and Tips | ImageCompressorNow">
 <meta name="twitter:description" content="Practical guides on compressing images: hitting upload size limits, avoiding bigger files, and choosing the right format.">
 <link rel="stylesheet" href="/style.css">
@@ -30,25 +34,41 @@
       "name": "Image Compression Guides",
       "description": "Practical guides on compressing images: hitting upload size limits, avoiding bigger files, and choosing the right format.",
       "isPartOf": {
-        "@type": "WebSite",
-        "url": "https://imagecompressornow.com/",
-        "name": "ImageCompressorNow"
+        "@id": "https://imagecompressornow.com/#website"
       },
+      "about": {
+        "@id": "https://imagecompressornow.com/blog#blog"
+      },
+      "breadcrumb": {
+        "@id": "https://imagecompressornow.com/blog#breadcrumb"
+      },
+      "dateModified": "2026-11-12",
+      "inLanguage": "en"
+    },
+    {
+      "@type": "Blog",
+      "@id": "https://imagecompressornow.com/blog#blog",
+      "url": "https://imagecompressornow.com/blog",
+      "name": "ImageCompressorNow Guides",
+      "description": "Practical guides on compressing images: hitting upload size limits, avoiding bigger files, and choosing the right format.",
       "publisher": {
         "@id": "https://imagecompressornow.com/#org"
       },
       "inLanguage": "en",
-      "dateModified": "2026-11-12",
-      "hasPart": [
+      "blogPost": [
         {
           "@type": "BlogPosting",
-          "headline": "How to Compress an Image to 100 KB (or 200 KB) for Forms and Applications",
-          "url": "https://imagecompressornow.com/blog/compress-image-to-100kb"
+          "headline": "How to Compress an Image to 100 KB or 200 KB (Step by Step)",
+          "url": "https://imagecompressornow.com/blog/compress-image-to-100kb",
+          "datePublished": "2026-11-12",
+          "image": "https://imagecompressornow.com/og/compress-image-to-100kb.png"
         },
         {
           "@type": "BlogPosting",
           "headline": "Why Is My Compressed Image Bigger Than the Original? 7 Causes and Fixes",
-          "url": "https://imagecompressornow.com/blog/compressed-image-bigger-than-original"
+          "url": "https://imagecompressornow.com/blog/compressed-image-bigger-than-original",
+          "datePublished": "2026-11-12",
+          "image": "https://imagecompressornow.com/og/compressed-image-bigger-than-original.png"
         }
       ]
     },
@@ -58,6 +78,16 @@
       "name": "ImageCompressorNow",
       "url": "https://imagecompressornow.com/",
       "logo": "https://imagecompressornow.com/favicon.svg"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://imagecompressornow.com/#website",
+      "url": "https://imagecompressornow.com/",
+      "name": "ImageCompressorNow",
+      "publisher": {
+        "@id": "https://imagecompressornow.com/#org"
+      },
+      "inLanguage": "en"
     },
     {
       "@type": "BreadcrumbList",
@@ -74,7 +104,8 @@
           "name": "Blog",
           "item": "https://imagecompressornow.com/blog"
         }
-      ]
+      ],
+      "@id": "https://imagecompressornow.com/blog#breadcrumb"
     }
   ]
 }
@@ -108,15 +139,15 @@
 <div class="post-list">
   <article class="post-card">
     <span class="tag">How-to</span>
-    <h2><a href="/blog/compress-image-to-100kb">How to Compress an Image to 100 KB (or 200 KB) for Forms and Applications</a></h2>
-    <p>Step-by-step ways to get a photo under 100 KB or 200 KB for job portals, exam forms and ID uploads, without trial and error or visible damage.</p>
-    <a class="more" href="/blog/compress-image-to-100kb">Read the guide &rarr; <span style="color:var(--ink-3);font-weight:500">6 min</span></a>
+    <h2><a href="/blog/compress-image-to-100kb">How to Compress an Image to 100 KB or 200 KB (Step by Step)</a></h2>
+    <p>Get any photo under 100 KB or 200 KB for forms and portals. Resize first, then tune quality. Free, private, no upload, with a size cheat sheet.</p>
+    <a class="more" href="/blog/compress-image-to-100kb">Read the guide &rarr; <span style="color:var(--ink-3);font-weight:500">7 min</span></a>
   </article>
   <article class="post-card">
     <span class="tag">Troubleshooting</span>
     <h2><a href="/blog/compressed-image-bigger-than-original">Why Is My Compressed Image Bigger Than the Original? 7 Causes and Fixes</a></h2>
     <p>Compressed a picture and it grew? Seven real reasons image files get larger after compression, and exactly how to fix each one.</p>
-    <a class="more" href="/blog/compressed-image-bigger-than-original">Read the guide &rarr; <span style="color:var(--ink-3);font-weight:500">6 min</span></a>
+    <a class="more" href="/blog/compressed-image-bigger-than-original">Read the guide &rarr; <span style="color:var(--ink-3);font-weight:500">7 min</span></a>
   </article>
 </div>
 </div>
