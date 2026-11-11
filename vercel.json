@@ -3,6 +3,12 @@
   "trailingSlash": false,
   "redirects": [
     {
+      "source": "/",
+      "has": [{ "type": "host", "value": "imagecompressornow.vercel.app" }],
+      "destination": "https://imagecompressornow.com/",
+      "permanent": true
+    },
+    {
       "source": "/:path*",
       "has": [{ "type": "host", "value": "imagecompressornow.vercel.app" }],
       "destination": "https://imagecompressornow.com/:path*",
