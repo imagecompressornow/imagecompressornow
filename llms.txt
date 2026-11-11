@@ -1,0 +1,25 @@
+# ImageCompressorNow
+
+> A free image compressor that runs entirely in the browser. Users reduce the file size of JPG, PNG, WebP, AVIF and HEIC images without uploading them anywhere. No signup, no watermark, no usage limit.
+
+ImageCompressorNow is a static website. All compression happens on the visitor's device using the browser canvas API, so images are never sent to a server. Output formats: WebP, JPEG, PNG, AVIF (where the browser supports encoding it), or the original format. Options: quality slider, maximum width, batch processing, and download of all results as one ZIP. HEIC photos are converted to JPEG before compression. Embedded metadata such as EXIF and GPS data is removed in the output.
+
+## Tool
+
+- [Image Compressor](https://imagecompressornow.com/): The main tool. Drop images, pick a format, quality and optional max width, then download.
+
+## Guides
+
+- [Blog index](https://imagecompressornow.com/blog): All guides.
+- [How to compress an image to 100 KB or 200 KB](https://imagecompressornow.com/blog/compress-image-to-100kb): Resize first, then adjust quality, to meet upload limits on forms and portals.
+- [Why is my compressed image bigger than the original?](https://imagecompressornow.com/blog/compressed-image-bigger-than-original): Seven causes (already-optimized files, quality 100%, PNG for photos, upscaling, noise) and fixes.
+
+## Policies
+
+- [Privacy Policy](https://imagecompressornow.com/privacy): Images are not uploaded or stored.
+- [Terms of Service](https://imagecompressornow.com/terms)
+- [Contact](https://imagecompressornow.com/contact)
+
+## Optional
+
+- [Sitemap](https://imagecompressornow.com/sitemap.xml)
