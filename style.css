@@ -401,3 +401,6 @@ td:first-child { white-space: nowrap; }
 .prose .cta h2 { margin-top: 0; color: #fff; }
 .prose .cta p { color: rgba(255, 255, 255, .95); margin: 0 auto 28px; font-size: 1.07rem; }
 .prose .cta .btn { color: var(--red); }
+
+.guide-grid { display: grid; gap: 14px; grid-template-columns: 1fr; }
+@media (min-width: 720px) { .guide-grid { grid-template-columns: repeat(2, 1fr); } }

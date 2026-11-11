@@ -13,6 +13,8 @@ ImageCompressorNow is a static website. All compression happens on the visitor's
 - [Blog index](https://imagecompressornow.com/blog): All guides.
 - [How to compress an image to 100 KB or 200 KB](https://imagecompressornow.com/blog/compress-image-to-100kb): Resize first, then adjust quality, to meet upload limits on forms and portals.
 - [Why is my compressed image bigger than the original?](https://imagecompressornow.com/blog/compressed-image-bigger-than-original): Seven causes (already-optimized files, quality 100%, PNG for photos, upscaling, noise) and fixes.
+- [How to compress an image without losing quality](https://imagecompressornow.com/blog/compress-image-without-losing-quality): Lossless vs lossy, the 75 to 85 percent quality sweet spot, and right-sizing dimensions.
+- [How to compress iPhone photos](https://imagecompressornow.com/blog/compress-iphone-photos): Convert HEIC to a smaller JPG or WebP in the browser, with email size and privacy tips.
 
 ## Policies
 
