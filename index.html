@@ -111,7 +111,7 @@
         {
           "@type": "Question",
           "name": "Are my images uploaded to a server?",
-          "acceptedAnswer": { "@type": "Answer", "text": "No. Compression runs inside your browser using the canvas API. Your pictures never leave your device. Two helper scripts (ZIP creation and HEIC conversion) are fetched only if you use those features." }
+          "acceptedAnswer": { "@type": "Answer", "text": "No. Compression runs inside your browser using the canvas API. Your pictures never leave your device. Two helper scripts (ZIP creation and HEIC conversion) are fetched only if you use those features, and AVIF uses an encoder served from this site." }
         },
         {
           "@type": "Question",
@@ -308,7 +308,7 @@
             <tr><td><strong>WebP</strong></td><td>Photos and graphics on websites</td><td>Yes</td><td>Google's tests found it <a href="https://developers.google.com/speed/webp/docs/webp_study" rel="noopener" target="_blank">25 to 34% smaller than JPEG</a> at similar quality. Works in all current browsers.</td></tr>
             <tr><td><strong>JPEG</strong></td><td>Photos that must open anywhere</td><td>No</td><td>Universal support. Good baseline for email and print shops.</td></tr>
             <tr><td><strong>PNG</strong></td><td>Logos, icons, screenshots with sharp text</td><td>Yes</td><td>Lossless, so savings are modest. Quality slider does not apply.</td></tr>
-            <tr><td><strong>AVIF</strong></td><td>Photos where every kilobyte counts</td><td>Yes</td><td>Frequently the smallest result. Only offered when your browser can create it.</td></tr>
+            <tr><td><strong>AVIF</strong></td><td>Photos where every kilobyte counts</td><td>Yes</td><td>Frequently the smallest result. Created in your browser by a built-in encoder, so large images can take a few seconds.</td></tr>
           </tbody>
         </table>
       </div>
@@ -320,7 +320,7 @@
       <p class="sub">Short answers to the things people ask most.</p>
       <details><summary>How do I compress an image online?</summary><p>Add your picture to the image compressor above, choose WebP or JPEG, keep quality near 80 percent, optionally set a maximum width, then download the smaller file. Everything happens in your browser, so nothing is uploaded.</p></details>
       <details><summary>Is this image compressor really free?</summary><p>Yes. There is no signup, no watermark and no daily quota. The only limit is the memory of your own device, since the work happens there.</p></details>
-      <details><summary>Are my images uploaded to a server?</summary><p>No. Compression runs inside your browser using the canvas API, so your pictures never leave your device. Two helper scripts (ZIP creation and HEIC conversion) are fetched only if you use those features.</p></details>
+      <details><summary>Are my images uploaded to a server?</summary><p>No. Compression runs inside your browser using the canvas API, so your pictures never leave your device. Two helper scripts (ZIP creation and HEIC conversion) are fetched only if you use those features, and AVIF uses an encoder served from this site.</p></details>
       <details><summary>How much smaller will my images get?</summary><p>It depends on the picture. Large camera photos often shrink by 50 to 80 percent when saved as WebP at around 80 percent quality. Files that were already optimized, such as small logos, may barely change.</p></details>
       <details><summary>Which output format should I choose?</summary><p>WebP is the best default for the web. Choose JPEG when you need the widest compatibility, PNG when you need lossless output or transparency, and AVIF when you want the smallest files and your audience uses modern browsers.</p></details>
       <details><summary>Will compression reduce image quality?</summary><p>JPEG, WebP and AVIF are lossy, so some detail is discarded. Between 70 and 85 percent the difference is rarely visible. Drag the slider, compare the result, and keep the lowest setting you are happy with.</p></details>

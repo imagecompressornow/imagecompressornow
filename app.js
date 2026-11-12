@@ -21,12 +21,13 @@
   };
   const EXT = { 'image/jpeg': 'jpg', 'image/png': 'png', 'image/webp': 'webp', 'image/avif': 'avif' };
   const MAX_PIXELS = 100_000_000; // keep canvas allocations sane on phones
+  const MAX_AVIF_PIXELS = 40_000_000; // the WebAssembly AVIF encoder needs a lot of memory
 
   const HINTS = {
     'image/webp': 'WebP gives the smallest files for most photos.',
     'image/jpeg': 'JPEG opens everywhere, ideal for forms and email.',
     'image/png': 'PNG is lossless, so the quality slider has no effect. Choose WebP or JPEG for bigger savings.',
-    'image/avif': 'AVIF is often the smallest, but older apps may not open it.',
+    'image/avif': 'AVIF is often the smallest. The first use loads a small encoder, and large images take longer.',
     original: 'Keeps each file in its own format.',
   };
   const settings = { format: 'image/webp', quality: 0.8, maxWidth: 0 };
@@ -66,13 +67,49 @@
       return c.toDataURL(type).startsWith('data:' + type);
     } catch { return false; }
   }
+  // Browsers rarely encode AVIF from a canvas, so fall back to a self-hosted WebAssembly encoder in a worker.
+  const nativeAvif = canEncode('image/avif');
+  const wasmAvif = typeof Worker !== 'undefined' && typeof WebAssembly === 'object';
   document.querySelectorAll('input[name="format"]').forEach((r) => {
-    if (r.value !== 'original' && !canEncode(r.value)) {
+    const ok = r.value === 'original' || canEncode(r.value) || (r.value === 'image/avif' && wasmAvif);
+    if (!ok) {
       r.disabled = true;
       r.closest('.chip').title = 'Your browser cannot create this format';
       if (r.checked) { $('input[name="format"][value="image/webp"]').checked = true; }
     }
   });
+
+  // ---------- AVIF (WebAssembly, off the main thread) ----------
+  let avifWorker, avifSeq = 0, avifLoaded = false;
+  const avifPending = new Map();
+  function getAvifWorker() {
+    if (avifWorker) return avifWorker;
+    avifWorker = new Worker('/vendor/avif/avif-worker.js', { type: 'module' });
+    avifWorker.onmessage = (e) => {
+      const { id, buf, error } = e.data;
+      const p = avifPending.get(id);
+      if (!p) return;
+      avifPending.delete(id);
+      avifLoaded = true;
+      error ? p.rej(new Error(error)) : p.res(new Blob([buf], { type: 'image/avif' }));
+    };
+    avifWorker.onerror = () => {
+      avifPending.forEach((p) => p.rej(new Error('Could not load the AVIF encoder')));
+      avifPending.clear();
+      avifWorker = null;
+    };
+    return avifWorker;
+  }
+  function encodeAvif(imageData, quality01) {
+    const slider = Math.round(quality01 * 100);
+    const q = Math.round(slider <= 90 ? slider * 0.7 : 63 + (slider - 90) * 2.7); // AVIF scale runs lower than JPEG
+    return new Promise((res, rej) => {
+      const id = ++avifSeq;
+      avifPending.set(id, { res, rej });
+      const buf = imageData.data.buffer;
+      getAvifWorker().postMessage({ id, data: buf, width: imageData.width, height: imageData.height, quality: q, speed: 7 }, [buf]);
+    });
+  }
 
   // ---------- core engine ----------
   async function toBitmap(blob) {
@@ -116,7 +153,14 @@
     ctx.drawImage(bmp, 0, 0, w, h);
     if (bmp.close) bmp.close();
 
-    let blob = await new Promise((res) => canvas.toBlob(res, type, opts.quality));
+    let blob;
+    if (type === 'image/avif' && !nativeAvif) {
+      if (w * h > MAX_AVIF_PIXELS) throw new Error('Too large for AVIF in the browser. Try WebP or set a smaller max width.');
+      if (!avifLoaded) { item.status = 'Loading AVIF encoder…'; render(item); }
+      blob = await encodeAvif(ctx.getImageData(0, 0, w, h), opts.quality);
+    } else {
+      blob = await new Promise((res) => canvas.toBlob(res, type, opts.quality));
+    }
     if (!blob) throw new Error('This browser could not encode the image');
     if (blob.type && blob.type !== type) type = blob.type; // browser fell back to another format
 
