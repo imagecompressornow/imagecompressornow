@@ -1,4 +1,4 @@
-/* ImageCompressorNow — in-browser compression engine.
+/* Image Compressor Now — in-browser compression engine.
    Everything runs on the visitor's device; files are never sent to a server.
    Heavy work (decode, resize, encode) happens in Web Workers through a small job queue,
    so the page stays responsive even with many large photos. */

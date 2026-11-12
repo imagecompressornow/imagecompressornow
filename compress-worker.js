@@ -1,4 +1,4 @@
-/* ImageCompressorNow — compression worker.
+/* Image Compressor Now — compression worker.
    Decodes, resizes and encodes one image off the main thread so the page never freezes.
    Files stay on the device: this worker only talks to the page that created it. */
 const MAX_PIXELS = 100_000_000;
