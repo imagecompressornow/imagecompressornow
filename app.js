@@ -1,5 +1,7 @@
 /* ImageCompressorNow — in-browser compression engine.
-   Everything runs locally through <canvas>; files are never sent to a server. */
+   Everything runs on the visitor's device; files are never sent to a server.
+   Heavy work (decode, resize, encode) happens in Web Workers through a small job queue,
+   so the page stays responsive even with many large photos. */
 (() => {
   'use strict';
 
@@ -58,6 +60,10 @@
     }));
   const isHeic = (f) => /\.(heic|heif)$/i.test(f.name) || /hei[cf]/i.test(f.type);
   const isSupported = (f) => /^image\/(jpeg|png|webp|avif)$/.test(f.type) || isHeic(f);
+  const avifQuality = (q01) => {
+    const slider = Math.round(q01 * 100);
+    return Math.round(slider <= 90 ? slider * 0.7 : 63 + (slider - 90) * 2.7); // AVIF scale runs lower than JPEG
+  };
 
   // Detect which output encoders this browser really has.
   function canEncode(type) {
@@ -67,7 +73,7 @@
       return c.toDataURL(type).startsWith('data:' + type);
     } catch { return false; }
   }
-  // Browsers rarely encode AVIF from a canvas, so fall back to a self-hosted WebAssembly encoder in a worker.
+  // Browsers rarely encode AVIF from a canvas, so fall back to a self-hosted WebAssembly encoder.
   const nativeAvif = canEncode('image/avif');
   const wasmAvif = typeof Worker !== 'undefined' && typeof WebAssembly === 'object';
   document.querySelectorAll('input[name="format"]').forEach((r) => {
@@ -79,7 +85,56 @@
     }
   });
 
-  // ---------- AVIF (WebAssembly, off the main thread) ----------
+  // ---------- worker pool ----------
+  let useWorkers = typeof Worker !== 'undefined' && typeof OffscreenCanvas !== 'undefined' &&
+    typeof createImageBitmap === 'function' && 'convertToBlob' in OffscreenCanvas.prototype;
+  const MAX_PAR = useWorkers
+    ? Math.max(1, Math.min(3, Math.floor((navigator.hardwareConcurrency || 4) / 2)))
+    : 1;
+  const pool = { all: [], idle: [] };
+  const pending = new Map(); // job id -> { res, rej, worker, item }
+  let jobSeq = 0;
+
+  function spawnWorker() {
+    const w = new Worker('/compress-worker.js', { type: 'module' });
+    w.onmessage = (e) => {
+      const m = e.data;
+      const p = pending.get(m.id);
+      if (!p) return;
+      if (m.status) { setStatus(p.item, m.status); return; }
+      pending.delete(m.id);
+      pool.idle.push(w);
+      m.error ? p.rej(new Error(m.error)) : p.res(m);
+    };
+    w.onerror = () => {
+      // the worker could not start (old browser): fall back to the main-thread engine
+      useWorkers = false;
+      pool.all = pool.all.filter((x) => x !== w);
+      pool.idle = pool.idle.filter((x) => x !== w);
+      pending.forEach((p, id) => {
+        if (p.worker === w) { pending.delete(id); p.rej(Object.assign(new Error('worker failed'), { fallback: true })); }
+      });
+      w.terminate();
+    };
+    pool.all.push(w);
+    return w;
+  }
+  const takeWorker = () => pool.idle.pop() || (pool.all.length < MAX_PAR ? spawnWorker() : null);
+
+  function viaWorker(item, source, type, opts) {
+    return new Promise((res, rej) => {
+      const worker = takeWorker();
+      if (!worker) { rej(Object.assign(new Error('no worker'), { fallback: true })); return; }
+      const id = ++jobSeq;
+      pending.set(id, { res, rej, worker, item });
+      worker.postMessage({
+        id, file: source, type, quality: opts.quality, maxWidth: opts.maxWidth,
+        avifQ: avifQuality(opts.quality), nativeAvif,
+      });
+    });
+  }
+
+  // ---------- main-thread fallback engine ----------
   let avifWorker, avifSeq = 0, avifLoaded = false;
   const avifPending = new Map();
   function getAvifWorker() {
@@ -100,18 +155,14 @@
     };
     return avifWorker;
   }
-  function encodeAvif(imageData, quality01) {
-    const slider = Math.round(quality01 * 100);
-    const q = Math.round(slider <= 90 ? slider * 0.7 : 63 + (slider - 90) * 2.7); // AVIF scale runs lower than JPEG
+  function encodeAvifMain(imageData, quality01) {
     return new Promise((res, rej) => {
       const id = ++avifSeq;
       avifPending.set(id, { res, rej });
       const buf = imageData.data.buffer;
-      getAvifWorker().postMessage({ id, data: buf, width: imageData.width, height: imageData.height, quality: q, speed: 7 }, [buf]);
+      getAvifWorker().postMessage({ id, data: buf, width: imageData.width, height: imageData.height, quality: avifQuality(quality01), speed: 7 }, [buf]);
     });
   }
-
-  // ---------- core engine ----------
   async function toBitmap(blob) {
     if ('createImageBitmap' in window) {
       try { return await createImageBitmap(blob); } catch { /* fall through */ }
@@ -124,24 +175,10 @@
       return img;
     } finally { URL.revokeObjectURL(url); }
   }
-
-  async function compress(item, opts) {
-    // HEIC/HEIF: convert once to a JPEG source, then compress as usual.
-    if (isHeic(item.file) && !item.source) {
-      await loadScript(CDN.heic);
-      const out = await window.heic2any({ blob: item.file, toType: 'image/jpeg', quality: 0.95 });
-      item.source = Array.isArray(out) ? out[0] : out;
-    }
-    const source = item.source || item.file;
-    const sourceType = source.type || item.file.type;
-
-    let type = opts.format === 'original' ? sourceType : opts.format;
-    if (!EXT[type]) type = 'image/jpeg';
-
+  async function viaMain(item, source, type, opts) {
     const bmp = await toBitmap(source);
     const w0 = bmp.width, h0 = bmp.height;
     if (w0 * h0 > MAX_PIXELS) throw new Error('Image is too large to process in the browser');
-
     let w = w0, h = h0;
     if (opts.maxWidth > 0 && w0 > opts.maxWidth) {
       w = opts.maxWidth;
@@ -149,40 +186,126 @@
     }
     const canvas = el('canvas', { width: w, height: h });
     const ctx = canvas.getContext('2d');
-    if (type === 'image/jpeg') { ctx.fillStyle = '#fff'; ctx.fillRect(0, 0, w, h); } // JPEG has no alpha
+    if (type === 'image/jpeg') { ctx.fillStyle = '#fff'; ctx.fillRect(0, 0, w, h); }
     ctx.drawImage(bmp, 0, 0, w, h);
     if (bmp.close) bmp.close();
+
+    const s = Math.min(1, 160 / Math.max(w, h));
+    const tc = el('canvas', { width: Math.max(1, Math.round(w * s)), height: Math.max(1, Math.round(h * s)) });
+    tc.getContext('2d').drawImage(canvas, 0, 0, tc.width, tc.height);
+    const thumb = await new Promise((r) => tc.toBlob(r, 'image/png'));
 
     let blob;
     if (type === 'image/avif' && !nativeAvif) {
       if (w * h > MAX_AVIF_PIXELS) throw new Error('Too large for AVIF in the browser. Try WebP or set a smaller max width.');
-      if (!avifLoaded) { item.status = 'Loading AVIF encoder…'; render(item); }
-      blob = await encodeAvif(ctx.getImageData(0, 0, w, h), opts.quality);
+      if (!avifLoaded) setStatus(item, 'Loading AVIF encoder…');
+      blob = await encodeAvifMain(ctx.getImageData(0, 0, w, h), opts.quality);
     } else {
       blob = await new Promise((res) => canvas.toBlob(res, type, opts.quality));
     }
     if (!blob) throw new Error('This browser could not encode the image');
-    if (blob.type && blob.type !== type) type = blob.type; // browser fell back to another format
+    return { blob, thumb, w0, h0, w, h };
+  }
 
-    // Never hand back a bigger file when nothing was changed on purpose.
-    const untouched = !item.source && type === item.file.type && w === w0 && h === h0;
+  // ---------- job queue ----------
+  const queue = [];
+  let active = 0;
+  let heicLock = Promise.resolve(); // HEIC conversion runs on the main thread: one at a time
+
+  const isStale = (job) => !items.has(job.item.id) || job.item.token !== job.token;
+
+  function pump() {
+    while (active < MAX_PAR && queue.length) {
+      const job = queue.shift();
+      if (isStale(job)) continue; // superseded by newer settings, or removed
+      active++;
+      document.body.classList.add('busy');
+      execute(job).finally(() => {
+        active--;
+        if (!active && !queue.length) document.body.classList.remove('busy');
+        pump();
+      });
+    }
+  }
+
+  function convertHeic(item) {
+    const task = heicLock.then(async () => {
+      await loadScript(CDN.heic);
+      const out = await window.heic2any({ blob: item.file, toType: 'image/jpeg', quality: 0.95 });
+      item.source = Array.isArray(out) ? out[0] : out;
+    });
+    heicLock = task.catch(() => {});
+    return task;
+  }
+
+  async function execute(job) {
+    const { item, opts } = job;
+    try {
+      if (isHeic(item.file) && !item.source) {
+        setStatus(item, 'Converting HEIC…');
+        await convertHeic(item);
+        if (isStale(job)) return;
+      }
+      setStatus(item, 'Compressing…');
+      const source = item.source || item.file;
+      const sourceType = source.type || item.file.type;
+      let type = opts.format === 'original' ? sourceType : opts.format;
+      if (!EXT[type]) type = 'image/jpeg';
+
+      let out;
+      if (useWorkers) {
+        try { out = await viaWorker(item, source, type, opts); }
+        catch (e) { if (!e.fallback) throw e; out = await viaMain(item, source, type, opts); }
+      } else {
+        out = await viaMain(item, source, type, opts);
+      }
+      if (isStale(job)) return;
+      item.result = finish(item, out, type);
+    } catch (e) {
+      if (isStale(job)) return;
+      item.error = e && e.message ? e.message : 'Could not process this file';
+    }
+    render(item);
+    updateSummary();
+  }
+
+  // Never hand back a bigger file when nothing was changed on purpose.
+  function finish(item, out, type) {
+    let blob = out.blob;
+    if (!blob) throw new Error('This browser could not encode the image');
+    if (blob.type && blob.type !== type) type = blob.type; // browser fell back to another format
+    const untouched = !item.source && type === item.file.type && out.w === out.w0 && out.h === out.h0;
     let note = '';
     if (untouched && blob.size >= item.file.size) {
       blob = item.file;
       note = 'Already well optimized';
     }
     const base = item.file.name.replace(/\.[^.]+$/, '');
-    return { blob, name: `${base}.${EXT[type] || 'jpg'}`, note };
+    return { blob, thumb: out.thumb, name: `${base}.${EXT[type] || 'jpg'}`, note };
   }
 
   // ---------- UI ----------
+  function setStatus(item, text) {
+    item.status = text;
+    if (!item.result && !item.error && items.has(item.id)) render(item);
+  }
+
+  function freeUrls(it) {
+    if (it.resultUrl) URL.revokeObjectURL(it.resultUrl);
+    if (it.thumbUrl) URL.revokeObjectURL(it.thumbUrl);
+    it.resultUrl = it.thumbUrl = null;
+  }
+
   function render(item) {
     const row = item.row || (item.row = el('div', { className: 'row' }));
     row.className = 'row' + (item.error ? ' err' : '');
     row.replaceChildren();
 
-    const thumb = el('img', { className: 'thumb', alt: '', loading: 'lazy' });
-    if (item.result) thumb.src = item.resultUrl || (item.resultUrl = URL.createObjectURL(item.result.blob));
+    const thumb = el('img', { className: 'thumb', alt: '', decoding: 'async' });
+    if (item.result) {
+      item.resultUrl ||= URL.createObjectURL(item.result.blob);
+      if (item.result.thumb) thumb.src = item.thumbUrl ||= URL.createObjectURL(item.result.thumb);
+    }
     const name = el('div', { className: 'name' }, item.result ? item.result.name : item.file.name);
     row.append(thumb, name);
 
@@ -192,7 +315,7 @@
     }
     if (!item.result) {
       row.append(
-        el('div', { className: 'state' }, el('span', { className: 'spinner' }), item.status || 'Compressing…'),
+        el('div', { className: 'state' }, el('span', { className: 'spinner' }), item.status || 'Waiting…'),
         el('div', { className: 'actions' }, removeBtn(item))
       );
       return;
@@ -217,7 +340,7 @@
   function remove(id) {
     const it = items.get(id);
     if (!it) return;
-    if (it.resultUrl) URL.revokeObjectURL(it.resultUrl);
+    freeUrls(it);
     it.row?.remove();
     items.delete(id);
     updateSummary();
@@ -233,28 +356,22 @@
     const after = done.reduce((s, i) => s + i.result.blob.size, 0);
     const saved = Math.max(before - after, 0);
     const pct = before ? Math.round((saved / before) * 100) : 0;
+    const waiting = all.filter((i) => !i.result && !i.error).length;
     $('#summary-text').replaceChildren(
-      `${done.length} image${done.length > 1 ? 's' : ''} · saved `, el('b', {}, `${fmtBytes(saved)} (${pct}%)`));
+      `${done.length} image${done.length > 1 ? 's' : ''} · saved `, el('b', {}, `${fmtBytes(saved)} (${pct}%)`),
+      waiting > 0 ? ` · ${waiting} more in progress` : '');
     zipBtn.hidden = done.length < 2;
   }
 
-  async function run(item) {
+  function run(item) {
     const token = ++item.token;
     item.error = null;
-    item.status = isHeic(item.file) && !item.source ? 'Converting HEIC…' : 'Compressing…';
-    if (item.resultUrl) { URL.revokeObjectURL(item.resultUrl); item.resultUrl = null; }
+    item.status = 'Waiting…';
+    freeUrls(item);
     item.result = null;
     render(item);
-    try {
-      const result = await compress(item, { ...settings });
-      if (token !== item.token || !items.has(item.id)) return; // superseded
-      item.result = result;
-    } catch (e) {
-      if (token !== item.token) return;
-      item.error = e && e.message ? e.message : 'Could not process this file';
-    }
-    render(item);
-    updateSummary();
+    queue.push({ item, token, opts: { ...settings } });
+    pump();
   }
 
   function addFiles(fileList) {

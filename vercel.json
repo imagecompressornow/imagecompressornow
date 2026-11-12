@@ -25,7 +25,7 @@
       ]
     },
     {
-      "source": "/(style.css|app.js|favicon.svg)",
+      "source": "/(style.css|app.js|home.js|page.js|compress-worker.js|favicon.svg)",
       "headers": [{ "key": "Cache-Control", "value": "public, max-age=86400, must-revalidate" }]
     },
     {
