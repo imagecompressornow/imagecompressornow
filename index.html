@@ -167,6 +167,10 @@
     <div class="grid-bg" aria-hidden="true"></div>
 
     <section class="hero">
+        <div class="float-cards" aria-hidden="true">
+          <div class="fc fc-a"><span class="fc-thumb"><svg viewBox="0 0 120 80" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="sk1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffc15e"/><stop offset="1" stop-color="#ff5a3c"/></linearGradient></defs><rect width="120" height="80" fill="url(#sk1)"/><circle cx="84" cy="30" r="12" fill="#fff3d6"/><path d="M0 80V52l28-22 22 20 20-14 50 32v12z" fill="#8a2f2f"/><path d="M0 80V62l34-14 30 16 28-10 28 14v12z" fill="#4a1a22"/></svg></span><span class="fc-txt"><b>IMG_4021.jpg</b><span class="fc-size">4.2 MB</span></span></div>
+          <div class="fc fc-b"><span class="fc-thumb"><svg viewBox="0 0 120 80" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="sk2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffc15e"/><stop offset="1" stop-color="#ff5a3c"/></linearGradient></defs><rect width="120" height="80" fill="url(#sk2)"/><circle cx="84" cy="30" r="12" fill="#fff3d6"/><path d="M0 80V52l28-22 22 20 20-14 50 32v12z" fill="#8a2f2f"/><path d="M0 80V62l34-14 30 16 28-10 28 14v12z" fill="#4a1a22"/></svg></span><span class="fc-txt"><b>IMG_4021.webp</b><span class="fc-size" id="fc-size">600 KB</span><span class="fc-bar"><i id="fc-bar"></i></span></span><em class="fc-badge" id="fc-badge">&minus;86%</em></div>
+        </div>
       <div class="wrap">
         <span class="eyebrow-pill"><i aria-hidden="true"></i>Runs 100% in your browser. Nothing is uploaded.</span>
         <h1>The <span class="grad">image compressor</span> that keeps your photos private</h1>
@@ -263,6 +267,22 @@
         <li><span class="n">2</span><h3>Tune the result</h3><p>Pick a format, slide the quality and, if you want, set a maximum width. Results refresh automatically as you change things.</p></li>
         <li><span class="n">3</span><h3>Save the lighter files</h3><p>Download one image, or grab the whole batch as a single ZIP. Each row shows exactly how many kilobytes you saved.</p></li>
       </ol>
+    </section>
+
+    <section class="block" id="savings">
+      <span class="eyebrow">See the difference</span>
+      <h2>How much smaller can a photo get?</h2>
+      <p class="sub">An illustrative example: one 12-megapixel phone photo saved in different ways. Real results depend on your picture.</p>
+      <div class="bars-card">
+        <ul class="bars" aria-label="Illustrative file sizes for one photo">
+          <li class="bar-row" style="--w:100%;--i:0"><span class="bar-label">Original camera JPEG</span><span class="bar-track"><i class="bar-fill"></i></span><span class="bar-val">4.2 MB</span></li>
+          <li class="bar-row" style="--w:50%;--i:1"><span class="bar-label">JPEG at 80% quality</span><span class="bar-track"><i class="bar-fill"></i></span><span class="bar-val">2.1 MB</span></li>
+          <li class="bar-row" style="--w:36%;--i:2"><span class="bar-label">WebP at 80% quality</span><span class="bar-track"><i class="bar-fill"></i></span><span class="bar-val">1.5 MB</span></li>
+          <li class="bar-row" style="--w:24%;--i:3"><span class="bar-label">AVIF at 80% quality</span><span class="bar-track"><i class="bar-fill"></i></span><span class="bar-val">1.0 MB</span></li>
+          <li class="bar-row" style="--w:10%;--i:4"><span class="bar-label">WebP, resized to 1920 px wide</span><span class="bar-track"><i class="bar-fill"></i></span><span class="bar-val">0.4 MB</span></li>
+        </ul>
+        <p class="bars-note">Illustrative numbers, not a promise. Drop your own image above to see exact savings.</p>
+      </div>
     </section>
 
     <section class="block" id="why">
@@ -362,5 +382,6 @@
 </footer>
 
 <script src="/app.js" defer></script>
+<script src="/home.js" defer></script>
 </body>
 </html>
