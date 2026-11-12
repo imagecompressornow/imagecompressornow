@@ -175,30 +175,220 @@
     <lastmod>2026-11-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imagecompressornow.com/blog"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imagecompressornow.com/es/blog"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imagecompressornow.com/fr/blog"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imagecompressornow.com/pt/blog"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imagecompressornow.com/blog"/>
+  </url>
+  <url>
+    <loc>https://imagecompressornow.com/es/blog</loc>
+    <lastmod>2026-11-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imagecompressornow.com/blog"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imagecompressornow.com/es/blog"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imagecompressornow.com/fr/blog"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imagecompressornow.com/pt/blog"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imagecompressornow.com/blog"/>
+  </url>
+  <url>
+    <loc>https://imagecompressornow.com/fr/blog</loc>
+    <lastmod>2026-11-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imagecompressornow.com/blog"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imagecompressornow.com/es/blog"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imagecompressornow.com/fr/blog"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imagecompressornow.com/pt/blog"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imagecompressornow.com/blog"/>
+  </url>
+  <url>
+    <loc>https://imagecompressornow.com/pt/blog</loc>
+    <lastmod>2026-11-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imagecompressornow.com/blog"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imagecompressornow.com/es/blog"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imagecompressornow.com/fr/blog"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imagecompressornow.com/pt/blog"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imagecompressornow.com/blog"/>
   </url>
   <url>
     <loc>https://imagecompressornow.com/blog/compress-image-to-100kb</loc>
     <lastmod>2026-11-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imagecompressornow.com/blog/compress-image-to-100kb"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imagecompressornow.com/es/blog/compress-image-to-100kb"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imagecompressornow.com/fr/blog/compress-image-to-100kb"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imagecompressornow.com/pt/blog/compress-image-to-100kb"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imagecompressornow.com/blog/compress-image-to-100kb"/>
+  </url>
+  <url>
+    <loc>https://imagecompressornow.com/es/blog/compress-image-to-100kb</loc>
+    <lastmod>2026-11-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imagecompressornow.com/blog/compress-image-to-100kb"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imagecompressornow.com/es/blog/compress-image-to-100kb"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imagecompressornow.com/fr/blog/compress-image-to-100kb"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imagecompressornow.com/pt/blog/compress-image-to-100kb"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imagecompressornow.com/blog/compress-image-to-100kb"/>
+  </url>
+  <url>
+    <loc>https://imagecompressornow.com/fr/blog/compress-image-to-100kb</loc>
+    <lastmod>2026-11-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imagecompressornow.com/blog/compress-image-to-100kb"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imagecompressornow.com/es/blog/compress-image-to-100kb"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imagecompressornow.com/fr/blog/compress-image-to-100kb"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imagecompressornow.com/pt/blog/compress-image-to-100kb"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imagecompressornow.com/blog/compress-image-to-100kb"/>
+  </url>
+  <url>
+    <loc>https://imagecompressornow.com/pt/blog/compress-image-to-100kb</loc>
+    <lastmod>2026-11-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imagecompressornow.com/blog/compress-image-to-100kb"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imagecompressornow.com/es/blog/compress-image-to-100kb"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imagecompressornow.com/fr/blog/compress-image-to-100kb"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imagecompressornow.com/pt/blog/compress-image-to-100kb"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imagecompressornow.com/blog/compress-image-to-100kb"/>
   </url>
   <url>
     <loc>https://imagecompressornow.com/blog/compress-image-without-losing-quality</loc>
     <lastmod>2026-11-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imagecompressornow.com/blog/compress-image-without-losing-quality"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imagecompressornow.com/es/blog/compress-image-without-losing-quality"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imagecompressornow.com/fr/blog/compress-image-without-losing-quality"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imagecompressornow.com/pt/blog/compress-image-without-losing-quality"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imagecompressornow.com/blog/compress-image-without-losing-quality"/>
+  </url>
+  <url>
+    <loc>https://imagecompressornow.com/es/blog/compress-image-without-losing-quality</loc>
+    <lastmod>2026-11-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imagecompressornow.com/blog/compress-image-without-losing-quality"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imagecompressornow.com/es/blog/compress-image-without-losing-quality"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imagecompressornow.com/fr/blog/compress-image-without-losing-quality"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imagecompressornow.com/pt/blog/compress-image-without-losing-quality"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imagecompressornow.com/blog/compress-image-without-losing-quality"/>
+  </url>
+  <url>
+    <loc>https://imagecompressornow.com/fr/blog/compress-image-without-losing-quality</loc>
+    <lastmod>2026-11-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imagecompressornow.com/blog/compress-image-without-losing-quality"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imagecompressornow.com/es/blog/compress-image-without-losing-quality"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imagecompressornow.com/fr/blog/compress-image-without-losing-quality"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imagecompressornow.com/pt/blog/compress-image-without-losing-quality"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imagecompressornow.com/blog/compress-image-without-losing-quality"/>
+  </url>
+  <url>
+    <loc>https://imagecompressornow.com/pt/blog/compress-image-without-losing-quality</loc>
+    <lastmod>2026-11-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imagecompressornow.com/blog/compress-image-without-losing-quality"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imagecompressornow.com/es/blog/compress-image-without-losing-quality"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imagecompressornow.com/fr/blog/compress-image-without-losing-quality"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imagecompressornow.com/pt/blog/compress-image-without-losing-quality"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imagecompressornow.com/blog/compress-image-without-losing-quality"/>
   </url>
   <url>
     <loc>https://imagecompressornow.com/blog/compress-iphone-photos</loc>
     <lastmod>2026-11-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imagecompressornow.com/blog/compress-iphone-photos"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imagecompressornow.com/es/blog/compress-iphone-photos"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imagecompressornow.com/fr/blog/compress-iphone-photos"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imagecompressornow.com/pt/blog/compress-iphone-photos"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imagecompressornow.com/blog/compress-iphone-photos"/>
+  </url>
+  <url>
+    <loc>https://imagecompressornow.com/es/blog/compress-iphone-photos</loc>
+    <lastmod>2026-11-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imagecompressornow.com/blog/compress-iphone-photos"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imagecompressornow.com/es/blog/compress-iphone-photos"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imagecompressornow.com/fr/blog/compress-iphone-photos"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imagecompressornow.com/pt/blog/compress-iphone-photos"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imagecompressornow.com/blog/compress-iphone-photos"/>
+  </url>
+  <url>
+    <loc>https://imagecompressornow.com/fr/blog/compress-iphone-photos</loc>
+    <lastmod>2026-11-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imagecompressornow.com/blog/compress-iphone-photos"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imagecompressornow.com/es/blog/compress-iphone-photos"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imagecompressornow.com/fr/blog/compress-iphone-photos"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imagecompressornow.com/pt/blog/compress-iphone-photos"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imagecompressornow.com/blog/compress-iphone-photos"/>
+  </url>
+  <url>
+    <loc>https://imagecompressornow.com/pt/blog/compress-iphone-photos</loc>
+    <lastmod>2026-11-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imagecompressornow.com/blog/compress-iphone-photos"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imagecompressornow.com/es/blog/compress-iphone-photos"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imagecompressornow.com/fr/blog/compress-iphone-photos"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imagecompressornow.com/pt/blog/compress-iphone-photos"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imagecompressornow.com/blog/compress-iphone-photos"/>
   </url>
   <url>
     <loc>https://imagecompressornow.com/blog/compressed-image-bigger-than-original</loc>
     <lastmod>2026-11-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imagecompressornow.com/blog/compressed-image-bigger-than-original"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imagecompressornow.com/es/blog/compressed-image-bigger-than-original"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imagecompressornow.com/fr/blog/compressed-image-bigger-than-original"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imagecompressornow.com/pt/blog/compressed-image-bigger-than-original"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imagecompressornow.com/blog/compressed-image-bigger-than-original"/>
+  </url>
+  <url>
+    <loc>https://imagecompressornow.com/es/blog/compressed-image-bigger-than-original</loc>
+    <lastmod>2026-11-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imagecompressornow.com/blog/compressed-image-bigger-than-original"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imagecompressornow.com/es/blog/compressed-image-bigger-than-original"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imagecompressornow.com/fr/blog/compressed-image-bigger-than-original"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imagecompressornow.com/pt/blog/compressed-image-bigger-than-original"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imagecompressornow.com/blog/compressed-image-bigger-than-original"/>
+  </url>
+  <url>
+    <loc>https://imagecompressornow.com/fr/blog/compressed-image-bigger-than-original</loc>
+    <lastmod>2026-11-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imagecompressornow.com/blog/compressed-image-bigger-than-original"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imagecompressornow.com/es/blog/compressed-image-bigger-than-original"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imagecompressornow.com/fr/blog/compressed-image-bigger-than-original"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imagecompressornow.com/pt/blog/compressed-image-bigger-than-original"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imagecompressornow.com/blog/compressed-image-bigger-than-original"/>
+  </url>
+  <url>
+    <loc>https://imagecompressornow.com/pt/blog/compressed-image-bigger-than-original</loc>
+    <lastmod>2026-11-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imagecompressornow.com/blog/compressed-image-bigger-than-original"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imagecompressornow.com/es/blog/compressed-image-bigger-than-original"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imagecompressornow.com/fr/blog/compressed-image-bigger-than-original"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imagecompressornow.com/pt/blog/compressed-image-bigger-than-original"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imagecompressornow.com/blog/compressed-image-bigger-than-original"/>
   </url>
   <url>
     <loc>https://imagecompressornow.com/contact</loc>
