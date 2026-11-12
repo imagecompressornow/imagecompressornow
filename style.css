@@ -486,3 +486,10 @@ td:first-child { white-space: nowrap; }
 
 /* keep the page smooth while images are being compressed */
 body.busy *, body.busy *::before, body.busy *::after { animation-play-state: paused !important; }
+
+/* hero kicker: quiet editorial line instead of a badge */
+.kicker { display: flex; align-items: center; justify-content: center; gap: 14px; margin: 0; color: var(--ink-3); font-size: 0.78rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; animation: rise .7s both; }
+.kicker::before, .kicker::after { content: ""; height: 1px; width: 56px; background: linear-gradient(90deg, transparent, #e2c9b4); }
+.kicker::after { background: linear-gradient(90deg, #e2c9b4, transparent); }
+.kicker svg { width: 14px; height: 14px; margin-right: -6px; color: var(--orange-deep); flex: none; }
+@media (max-width: 520px) { .kicker { font-size: 0.7rem; letter-spacing: .1em; gap: 10px; } .kicker::before, .kicker::after { width: 24px; } }
