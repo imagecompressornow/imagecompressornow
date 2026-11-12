@@ -22,6 +22,13 @@
   const EXT = { 'image/jpeg': 'jpg', 'image/png': 'png', 'image/webp': 'webp', 'image/avif': 'avif' };
   const MAX_PIXELS = 100_000_000; // keep canvas allocations sane on phones
 
+  const HINTS = {
+    'image/webp': 'WebP gives the smallest files for most photos.',
+    'image/jpeg': 'JPEG opens everywhere, ideal for forms and email.',
+    'image/png': 'PNG is lossless, so the quality slider has no effect. Choose WebP or JPEG for bigger savings.',
+    'image/avif': 'AVIF is often the smallest, but older apps may not open it.',
+    original: 'Keeps each file in its own format.',
+  };
   const settings = { format: 'image/webp', quality: 0.8, maxWidth: 0 };
   const items = new Map(); // id -> item
   let seq = 0;
@@ -248,9 +255,7 @@
   document.querySelectorAll('input[name="format"]').forEach((r) =>
     r.addEventListener('change', () => {
       settings.format = r.value;
-      formatHint.textContent = r.value === 'image/png'
-        ? 'PNG is lossless, so the quality slider has no effect. Choose WebP or JPEG for bigger savings.'
-        : '';
+      formatHint.textContent = HINTS[r.value] || '';
       rerunAll();
     }));
   const paintSlider = () => {
@@ -268,6 +273,26 @@
     settings.maxWidth = Math.max(0, parseInt(widthInput.value, 10) || 0);
     rerunAll();
   });
+  // preset buttons keep the slider / width box in sync
+  const qBtns = [...document.querySelectorAll('[data-q]')];
+  const wBtns = [...document.querySelectorAll('[data-w]')];
+  const syncPresets = () => {
+    const w = parseInt(widthInput.value, 10) || 0;
+    qBtns.forEach((b) => b.setAttribute('aria-pressed', String(+b.dataset.q === +qualityInput.value)));
+    wBtns.forEach((b) => b.setAttribute('aria-pressed', String(+b.dataset.w === w)));
+  };
+  qBtns.forEach((b) => b.addEventListener('click', () => {
+    qualityInput.value = b.dataset.q;
+    qualityInput.dispatchEvent(new Event('input'));
+  }));
+  wBtns.forEach((b) => b.addEventListener('click', () => {
+    widthInput.value = b.dataset.w === '0' ? '' : b.dataset.w;
+    widthInput.dispatchEvent(new Event('input'));
+  }));
+  qualityInput.addEventListener('input', syncPresets);
+  widthInput.addEventListener('input', syncPresets);
+  syncPresets();
+
   clearBtn.addEventListener('click', () => [...items.keys()].forEach(remove));
 
   zipBtn.addEventListener('click', async () => {

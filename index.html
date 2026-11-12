@@ -193,24 +193,35 @@
 
           <div class="controls">
             <div class="field">
-              <span class="label" id="fmt-label">Output format</span>
+              <div class="field-head"><span class="field-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="9" cy="10" r="1.6"/><path d="M4 18l5-5 4 4 3-3 4 4"/></svg></span><span class="label" id="fmt-label">Output format</span></div>
               <div class="chips" role="radiogroup" aria-labelledby="fmt-label">
                 <label class="chip"><input type="radio" name="format" value="image/webp" checked><span>WebP</span></label>
                 <label class="chip"><input type="radio" name="format" value="image/jpeg"><span>JPEG</span></label>
                 <label class="chip"><input type="radio" name="format" value="image/png"><span>PNG</span></label>
                 <label class="chip"><input type="radio" name="format" value="image/avif"><span>AVIF</span></label>
-                <label class="chip"><input type="radio" name="format" value="original"><span>Keep original</span></label>
+                <label class="chip chip-wide"><input type="radio" name="format" value="original"><span>Keep original format</span></label>
               </div>
-              <p class="hint" id="format-hint" aria-live="polite"></p>
+              <p class="hint" id="format-hint" aria-live="polite">WebP gives the smallest files for most photos.</p>
             </div>
             <div class="field">
-              <label for="quality">Quality <output id="quality-out" for="quality">80%</output></label>
+              <div class="field-head"><span class="field-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h2M10 17h10"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="17" r="2"/></svg></span><label for="quality">Quality</label><output id="quality-out" for="quality">80%</output></div>
               <input type="range" id="quality" min="10" max="100" step="1" value="80">
-              <p class="hint">Lower means smaller files.</p>
+              <div class="range-scale" aria-hidden="true"><span>Smaller file</span><span>Sharper image</span></div>
+              <div class="presets" role="group" aria-label="Quality presets">
+                <button type="button" data-q="60">Smallest</button>
+                <button type="button" data-q="80">Balanced</button>
+                <button type="button" data-q="92">Best</button>
+              </div>
             </div>
             <div class="field">
-              <label for="max-width">Max width (px)</label>
-              <input type="number" id="max-width" min="0" step="1" inputmode="numeric" placeholder="Original size">
+              <div class="field-head"><span class="field-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16M7 9l-3 3 3 3M17 9l3 3-3 3"/></svg></span><label for="max-width">Max width</label></div>
+              <div class="num-wrap"><input type="number" id="max-width" min="0" step="1" inputmode="numeric" placeholder="Original size"><span aria-hidden="true">px</span></div>
+              <div class="presets" role="group" aria-label="Width presets">
+                <button type="button" data-w="0">Original</button>
+                <button type="button" data-w="1920">1920</button>
+                <button type="button" data-w="1280">1280</button>
+                <button type="button" data-w="800">800</button>
+              </div>
               <p class="hint">Optional. Never enlarges an image.</p>
             </div>
           </div>
