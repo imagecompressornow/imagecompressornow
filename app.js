@@ -345,7 +345,24 @@
       el('span', { className: 'badge' + (pct > 0 ? '' : ' none') }, pct > 0 ? `−${pct}%` : 'No gain'));
     if (item.result.note) meta.append(el('span', {}, item.result.note));
     const dl = el('a', { className: 'btn small', href: item.resultUrl, download: item.result.name }, 'Download');
-    row.append(meta, el('div', { className: 'actions' }, dl, removeBtn(item)));
+    const cmp = el('button', { className: 'btn small ghost', type: 'button', onclick: () => openCompare(item) }, 'Compare');
+    thumb.classList.add('zoomable');
+    thumb.title = 'Compare before and after';
+    thumb.onclick = () => openCompare(item);
+    row.append(meta, el('div', { className: 'actions' }, cmp, dl, removeBtn(item)));
+  }
+
+  function openCompare(item) {
+    if (!item.result) return;
+    document.dispatchEvent(new CustomEvent('ic:compare', {
+      detail: {
+        name: item.result.name,
+        original: item.source || item.file, // HEIC photos use their converted JPEG so the browser can show them
+        result: item.result.blob,
+        before: item.file.size,
+        after: item.result.blob.size,
+      },
+    }));
   }
 
   function removeBtn(item) {

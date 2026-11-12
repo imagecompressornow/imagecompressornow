@@ -75,6 +75,7 @@
         "Resize by maximum width",
         "Convert to WebP, JPEG, PNG or AVIF",
         "HEIC to JPG support",
+        "Before and after comparison slider",
         "Download all as ZIP",
         "No upload: files stay on your device"
       ],
@@ -292,7 +293,7 @@
       <ul class="features">
         <li class="dark"><span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/></svg></span><h3>Your files stay put</h3><p>The work is done by your own browser. Nothing is sent to a server, so private photos, IDs and client work remain private.</p></li>
         <li><span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 13l9 5 9-5"/></svg></span><h3>Made for batches</h3><p>Drop a whole folder's worth of photos and watch them shrink side by side, then download them together.</p></li>
-        <li><span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h2M10 17h10"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="17" r="2"/></svg></span><h3>Control, not guesswork</h3><p>Choose the format, quality and width yourself and see the before and after size on every file.</p></li>
+        <li><span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h2M10 17h10"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="17" r="2"/></svg></span><h3>Control, not guesswork</h3><p>Choose the format, quality and width yourself, see the before and after size on every file, and drag a slider to compare the pictures side by side.</p></li>
         <li><span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="3" width="10" height="18" rx="2.5"/><path d="M11 18h2"/></svg></span><h3>Handles iPhone photos</h3><p>HEIC pictures are converted to a standard format first, so they open everywhere after compression.</p></li>
         <li><span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l8-8h7v7l-8 8-7-7z"/><circle cx="15" cy="9" r="1.2"/></svg></span><h3>Metadata is stripped</h3><p>Camera model and GPS position are dropped during re-encoding, which also trims a few extra bytes.</p></li>
         <li><span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.7 2.7L16 9.5"/></svg></span><h3>Honest results</h3><p>If a file is already as small as it can reasonably get, you receive the original back instead of a bigger copy.</p></li>
@@ -382,6 +383,7 @@
 </footer>
 
 <script src="/app.js" defer></script>
+<script src="/compare.js" defer></script>
 <script src="/home.js" defer></script>
 </body>
 </html>
