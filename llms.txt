@@ -18,7 +18,7 @@ Image Compressor Now is a static website. All compression happens on the visitor
 
 ## Languages
 
-The tool and home page are available in 10 languages. The guides are also translated into: 中文 (zh), हिन्दी (hi), Español (es), Français (fr), العربية (ar), Português (pt), Русский (ru).
+The tool and home page are available in 10 languages. The guides are also translated into: 中文 (zh), हिन्दी (hi), Español (es), Français (fr), العربية (ar), বাংলা (bn), Português (pt), Русский (ru), اردو (ur).
 
 - [English](https://imagecompressornow.com/)
 - [中文](https://imagecompressornow.com/zh)
