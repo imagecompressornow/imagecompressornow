@@ -435,21 +435,21 @@ td:first-child { white-space: nowrap; }
 .float-cards { display: none; }
 @media (min-width: 1380px) {
   .float-cards { display: block; position: absolute; inset: 0; pointer-events: none; }
-  .fc { position: absolute; width: 224px; display: flex; align-items: center; gap: 12px; padding: 10px 14px 10px 10px; background: rgba(255, 255, 255, .86); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border: 1px solid var(--line); border-radius: 18px; box-shadow: 0 26px 50px -26px rgba(120, 40, 10, .5); text-align: left; }
-  .fc-a { left: 3vw; top: 70px; animation: float-a 7s ease-in-out infinite alternate; }
-  .fc-b { right: 3vw; top: 150px; animation: float-b 8s ease-in-out infinite alternate; }
+  .pol { position: absolute; margin: 0; width: 158px; padding: 8px 8px 10px; background: #fff; border-radius: 4px; box-shadow: 0 1px 2px rgba(60, 25, 10, .12), 0 22px 36px -18px rgba(90, 35, 10, .45); text-align: left; }
+  .pol-a { left: 5vw; top: 62px; animation: float-a 8s ease-in-out infinite alternate; }
+  .pol-b { right: 5vw; top: 128px; animation: float-b 9s ease-in-out infinite alternate; }
 }
-@keyframes float-a { from { transform: translateY(0) rotate(-4deg); } to { transform: translateY(-14px) rotate(-2deg); } }
-@keyframes float-b { from { transform: translateY(-6px) rotate(3deg); } to { transform: translateY(10px) rotate(1deg); } }
-.fc-thumb { width: 64px; height: 50px; flex: none; border-radius: 11px; overflow: hidden; box-shadow: 0 0 0 1px var(--line); }
-.fc-thumb svg { display: block; width: 100%; height: 100%; }
-.fc-txt { display: flex; flex-direction: column; min-width: 0; flex: 1; }
-.fc-txt b { font-size: .78rem; font-weight: 600; color: var(--ink-3); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.fc-size { font-family: var(--font-display); font-weight: 700; font-size: 1.2rem; letter-spacing: -0.02em; color: var(--ink); font-variant-numeric: tabular-nums; line-height: 1.2; }
-.fc-b .fc-size { color: var(--orange-deep); }
-.fc-bar { display: block; height: 5px; border-radius: 5px; background: #f3e9df; margin-top: 6px; overflow: hidden; }
-.fc-bar i { display: block; height: 100%; width: 100%; border-radius: 5px; background: var(--grad); transform-origin: left; transform: scaleX(.14); }
-.fc-badge { position: absolute; top: -12px; right: -10px; font-style: normal; font-family: var(--font-display); font-weight: 700; font-size: .8rem; color: #fff; background: var(--grad-btn); padding: 3px 11px; border-radius: 999px; box-shadow: 0 10px 18px -8px rgba(244, 81, 30, .8); }
+@keyframes float-a { from { transform: translateY(0) rotate(-6deg); } to { transform: translateY(-10px) rotate(-4deg); } }
+@keyframes float-b { from { transform: translateY(-4px) rotate(4deg); } to { transform: translateY(8px) rotate(2.5deg); } }
+.pol .tape { position: absolute; top: -9px; left: 50%; width: 56px; height: 17px; margin-left: -28px; transform: rotate(-3deg); background: rgba(255, 208, 150, .72); box-shadow: 0 1px 2px rgba(90, 40, 10, .15); }
+.pol-b .tape { transform: rotate(4deg); }
+.pol-img { display: block; aspect-ratio: 4 / 3; overflow: hidden; background: #f3e9df; }
+.pol-img svg { display: block; width: 100%; height: 100%; }
+.pol figcaption { padding: 8px 2px 0; display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
+.pol figcaption b { font-family: var(--font-display); font-weight: 700; font-size: 1.12rem; letter-spacing: -0.02em; color: var(--ink); font-variant-numeric: tabular-nums; }
+.pol figcaption small { font-size: .68rem; color: var(--ink-3); font-weight: 500; }
+.pol-b figcaption b { color: var(--orange-deep); }
+.stamp { position: absolute; right: -20px; bottom: 26px; width: 58px; height: 58px; display: grid; place-items: center; border-radius: 50%; font-style: normal; font-family: var(--font-display); font-weight: 700; font-size: .92rem; color: #fff; background: var(--grad); transform: rotate(12deg); box-shadow: 0 12px 20px -8px rgba(244, 81, 30, .75), inset 0 0 0 3px rgba(255, 255, 255, .35); }
 
 /* spotlight that follows the pointer on the tool card */
 .tool-card::after { content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; opacity: 0; transition: opacity .3s; background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 0), rgba(255, 138, 40, .13), transparent 62%); }
@@ -493,3 +493,12 @@ body.busy *, body.busy *::before, body.busy *::after { animation-play-state: pau
 .kicker::after { background: linear-gradient(90deg, #e2c9b4, transparent); }
 .kicker svg { width: 14px; height: 14px; margin-right: -6px; color: var(--orange-deep); flex: none; }
 @media (max-width: 520px) { .kicker { font-size: 0.7rem; letter-spacing: .1em; gap: 10px; } .kicker::before, .kicker::after { width: 24px; } }
+
+/* plain text benefit line with dot separators */
+.hero-badges { gap: 4px 0; color: var(--ink-2); }
+.hero-badges li + li::before { content: "\00B7"; margin: 0 12px; color: var(--ink-3); font-weight: 700; }
+.pol figcaption b { white-space: nowrap; }
+.pol figcaption small { white-space: nowrap; }
+.stamp { top: -20px; bottom: auto; right: -22px; }
+@media (min-width: 1380px) { .pol { width: 178px; } }
+.pol figcaption small { font-size: .64rem; }

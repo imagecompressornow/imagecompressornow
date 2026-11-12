@@ -16,13 +16,11 @@
 
   // hero demo card: the file "shrinks" in a loop
   const sizeEl = document.getElementById('fc-size');
-  const barEl = document.getElementById('fc-bar');
   const badgeEl = document.getElementById('fc-badge');
   const FROM = 4.2, TO = 0.6, DUR = 1900;
   const fmt = (v) => (v >= 1 ? v.toFixed(1) + ' MB' : Math.round(v * 100) * 10 + ' KB');
   const paint = (v) => {
     sizeEl.textContent = fmt(v);
-    barEl.style.transform = 'scaleX(' + (v / FROM).toFixed(3) + ')';
     badgeEl.textContent = '\u2212' + Math.round((1 - v / FROM) * 100) + '%';
   };
   const shrink = () => {
@@ -37,7 +35,7 @@
     paint(FROM);
     setTimeout(() => requestAnimationFrame(tick), 600);
   };
-  if (sizeEl && barEl && badgeEl) shrink();
+  if (sizeEl && badgeEl) shrink();
 
   // scroll reveal
   if (!('IntersectionObserver' in window)) return;
