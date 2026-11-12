@@ -17,6 +17,13 @@
     return n;
   };
 
+  const I18N = window.IC_I18N || {};
+  const tr = (k, d, vars) => {
+    let s = I18N[k] || d;
+    if (vars) for (const x in vars) s = s.split('{' + x + '}').join(vars[x]);
+    return s;
+  };
+
   let open = null; // currently open viewer
 
   function close() {
@@ -38,7 +45,7 @@
     const root = h('div', 'cmp');
     root.setAttribute('role', 'dialog');
     root.setAttribute('aria-modal', 'true');
-    root.setAttribute('aria-label', 'Compare before and after: ' + d.name);
+    root.setAttribute('aria-label', tr('c_aria', 'Compare before and after: {name}', { name: d.name }));
 
     const panel = h('div', 'cmp-panel');
 
@@ -47,17 +54,17 @@
     const title = h('div', 'cmp-title', d.name);
     const pct = d.before > 0 ? Math.round(((d.before - d.after) / d.before) * 100) : 0;
     const stats = h('div', 'cmp-stats');
-    const s1 = h('span', 'cmp-chip'); s1.append('Original ', Object.assign(h('b'), { textContent: fmt(d.before) }));
-    const s2 = h('span', 'cmp-chip hot'); s2.append('Compressed ', Object.assign(h('b'), { textContent: fmt(d.after) }));
-    stats.append(s1, s2, h('span', 'cmp-badge' + (pct > 0 ? '' : ' none'), pct > 0 ? '−' + pct + '%' : 'No gain'));
+    const s1 = h('span', 'cmp-chip'); s1.append(tr('c_original', 'Original') + ' ', Object.assign(h('b'), { textContent: fmt(d.before) }));
+    const s2 = h('span', 'cmp-chip hot'); s2.append(tr('c_compressed', 'Compressed') + ' ', Object.assign(h('b'), { textContent: fmt(d.after) }));
+    stats.append(s1, s2, h('span', 'cmp-badge' + (pct > 0 ? '' : ' none'), pct > 0 ? '−' + pct + '%' : tr('u_nogain', 'No gain')));
 
     const zoom = h('div', 'cmp-zoom');
     zoom.setAttribute('role', 'group');
-    zoom.setAttribute('aria-label', 'Zoom');
-    const bFit = h('button', null, 'Fit'); bFit.type = 'button'; bFit.setAttribute('aria-pressed', 'true');
+    zoom.setAttribute('aria-label', tr('c_zoom', 'Zoom'));
+    const bFit = h('button', null, tr('c_fit', 'Fit')); bFit.type = 'button'; bFit.setAttribute('aria-pressed', 'true');
     const b100 = h('button', null, '100%'); b100.type = 'button'; b100.setAttribute('aria-pressed', 'false');
     zoom.append(bFit, b100);
-    const x = h('button', 'cmp-x', '×'); x.type = 'button'; x.setAttribute('aria-label', 'Close comparison');
+    const x = h('button', 'cmp-x', '×'); x.type = 'button'; x.setAttribute('aria-label', tr('c_close', 'Close comparison'));
     const right = h('div', 'cmp-right'); right.append(zoom, x);
     head.append(title, stats, right);
 
@@ -65,14 +72,14 @@
     const view = h('div', 'cmp-view');
     const stage = h('div', 'cmp-stage');
     stage.style.setProperty('--p', '50%');
-    const after = h('img', 'cmp-after'); after.alt = 'Compressed version'; after.decoding = 'async'; after.draggable = false; after.src = urls[1];
-    const before = h('img', 'cmp-before'); before.alt = 'Original version'; before.decoding = 'async'; before.draggable = false; before.src = urls[0];
-    const lab1 = h('span', 'cmp-label l', 'Original');
-    const lab2 = h('span', 'cmp-label r', 'Compressed');
+    const after = h('img', 'cmp-after'); after.alt = tr('c_alt_after', 'Compressed version'); after.decoding = 'async'; after.draggable = false; after.src = urls[1];
+    const before = h('img', 'cmp-before'); before.alt = tr('c_alt_before', 'Original version'); before.decoding = 'async'; before.draggable = false; before.src = urls[0];
+    const lab1 = h('span', 'cmp-label l', tr('c_original', 'Original'));
+    const lab2 = h('span', 'cmp-label r', tr('c_compressed', 'Compressed'));
     const handle = h('div', 'cmp-handle');
     handle.tabIndex = 0;
     handle.setAttribute('role', 'slider');
-    handle.setAttribute('aria-label', 'Reveal original or compressed');
+    handle.setAttribute('aria-label', tr('c_slider', 'Reveal original or compressed'));
     handle.setAttribute('aria-valuemin', '0');
     handle.setAttribute('aria-valuemax', '100');
     handle.setAttribute('aria-valuenow', '50');
@@ -80,7 +87,7 @@
     stage.append(after, before, lab1, lab2, handle);
     view.append(stage);
 
-    const foot = h('div', 'cmp-foot', 'Drag the handle or use the ← → keys. Choose 100% to inspect individual pixels.');
+    const foot = h('div', 'cmp-foot', tr('c_foot', 'Drag the handle or use the ← → keys. Choose 100% to inspect individual pixels.'));
 
     panel.append(head, view, foot);
     root.append(panel);

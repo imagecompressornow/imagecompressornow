@@ -25,12 +25,29 @@
   const MAX_PIXELS = 100_000_000; // keep canvas allocations sane on phones
   const MAX_AVIF_PIXELS = 40_000_000; // the WebAssembly AVIF encoder needs a lot of memory
 
+  // ---------- interface language (strings come from the page, English is the fallback) ----------
+  const I18N = window.IC_I18N || {};
+  const tr = (k, d, vars) => {
+    let s = I18N[k] || d;
+    if (vars) for (const x in vars) s = s.split('{' + x + '}').join(vars[x]);
+    return s;
+  };
   const HINTS = {
-    'image/webp': 'WebP gives the smallest files for most photos.',
-    'image/jpeg': 'JPEG opens everywhere, ideal for forms and email.',
-    'image/png': 'PNG is lossless, so the quality slider has no effect. Choose WebP or JPEG for bigger savings.',
-    'image/avif': 'AVIF is often the smallest. The first use loads a small encoder, and large images take longer.',
-    original: 'Keeps each file in its own format.',
+    'image/webp': tr('hint_webp', 'WebP gives the smallest files for most photos.'),
+    'image/jpeg': tr('hint_jpeg', 'JPEG opens everywhere, ideal for forms and email.'),
+    'image/png': tr('hint_png', 'PNG is lossless, so the quality slider has no effect. Choose WebP or JPEG for bigger savings.'),
+    'image/avif': tr('hint_avif', 'AVIF is often the smallest. The first use loads a small encoder, and large images take longer.'),
+    original: tr('hint_original', 'Keeps each file in its own format.'),
+  };
+  // worker / browser errors arrive in English: map the known ones to the page language
+  const localizeError = (e) => {
+    const m = (e && e.message) || '';
+    if (/too large for avif/i.test(m)) return tr('u_err_avif_large', 'Too large for AVIF in the browser. Try WebP or set a smaller max width.');
+    if (/too large to process/i.test(m)) return tr('u_err_large', 'Image is too large to process in the browser');
+    if (/could not be decoded|decode/i.test(m)) return tr('u_err_decode', 'This file could not be read as an image.');
+    if (/could not encode|encoding failed/i.test(m)) return tr('u_err_encode', 'This browser could not encode the image');
+    if (/avif encoder/i.test(m)) return tr('u_err_avif_load', 'Could not load the AVIF encoder');
+    return tr('u_err_generic', 'Could not process this file');
   };
   const settings = { format: 'image/webp', quality: 0.8, maxWidth: 0 };
   const items = new Map(); // id -> item
@@ -80,7 +97,7 @@
     const ok = r.value === 'original' || canEncode(r.value) || (r.value === 'image/avif' && wasmAvif);
     if (!ok) {
       r.disabled = true;
-      r.closest('.chip').title = 'Your browser cannot create this format';
+      r.closest('.chip').title = tr('u_cant_create', 'Your browser cannot create this format');
       if (r.checked) { $('input[name="format"][value="image/webp"]').checked = true; }
     }
   });
@@ -101,7 +118,7 @@
       const m = e.data;
       const p = pending.get(m.id);
       if (!p) return;
-      if (m.status) { setStatus(p.item, m.status); return; }
+      if (m.status) { setStatus(p.item, /avif/i.test(m.status) ? tr('u_avif_loading', 'Loading AVIF encoder…') : tr('u_compressing', 'Compressing…')); return; }
       pending.delete(m.id);
       pool.idle.push(w);
       m.error ? p.rej(new Error(m.error)) : p.res(m);
@@ -216,7 +233,7 @@
     let blob;
     if (type === 'image/avif' && !nativeAvif) {
       if (w * h > MAX_AVIF_PIXELS) throw new Error('Too large for AVIF in the browser. Try WebP or set a smaller max width.');
-      if (!avifLoaded) setStatus(item, 'Loading AVIF encoder…');
+      if (!avifLoaded) setStatus(item, tr('u_avif_loading', 'Loading AVIF encoder…'));
       blob = await encodeAvifMain(ctx.getImageData(0, 0, w, h), opts.quality);
     } else {
       blob = await new Promise((res) => canvas.toBlob(res, type, opts.quality));
@@ -260,11 +277,11 @@
     const { item, opts } = job;
     try {
       if (isHeic(item.file) && !item.source) {
-        setStatus(item, 'Converting HEIC…');
+        setStatus(item, tr('u_heic', 'Converting HEIC…'));
         await convertHeic(item);
         if (isStale(job)) return;
       }
-      setStatus(item, 'Compressing…');
+      setStatus(item, tr('u_compressing', 'Compressing…'));
       const source = item.source || item.file;
       const sourceType = source.type || item.file.type;
       let type = opts.format === 'original' ? sourceType : opts.format;
@@ -281,7 +298,7 @@
       item.result = finish(item, out, type);
     } catch (e) {
       if (isStale(job)) return;
-      item.error = e && e.message ? e.message : 'Could not process this file';
+      item.error = localizeError(e);
     }
     render(item);
     updateSummary();
@@ -296,7 +313,7 @@
     let note = '';
     if (untouched && blob.size >= item.file.size) {
       blob = item.file;
-      note = 'Already well optimized';
+      note = 'optimized';
     }
     const base = item.file.name.replace(/\.[^.]+$/, '');
     return { blob, thumb: out.thumb, name: `${base}.${EXT[type] || 'jpg'}`, note };
@@ -333,7 +350,7 @@
     }
     if (!item.result) {
       row.append(
-        el('div', { className: 'state' }, el('span', { className: 'spinner' }), item.status || 'Waiting…'),
+        el('div', { className: 'state' }, el('span', { className: 'spinner' }), item.status || tr('u_waiting', 'Waiting…')),
         el('div', { className: 'actions' }, removeBtn(item))
       );
       return;
@@ -341,13 +358,13 @@
     const before = item.file.size, after = item.result.blob.size;
     const pct = Math.round(((before - after) / before) * 100);
     const meta = el('div', { className: 'meta' },
-      el('s', {}, fmtBytes(before)), '→', el('b', {}, fmtBytes(after)),
-      el('span', { className: 'badge' + (pct > 0 ? '' : ' none') }, pct > 0 ? `−${pct}%` : 'No gain'));
-    if (item.result.note) meta.append(el('span', {}, item.result.note));
-    const dl = el('a', { className: 'btn small', href: item.resultUrl, download: item.result.name }, 'Download');
-    const cmp = el('button', { className: 'btn small ghost', type: 'button', onclick: () => openCompare(item) }, 'Compare');
+      el('s', {}, fmtBytes(before)), document.documentElement.dir === 'rtl' ? '←' : '→', el('b', {}, fmtBytes(after)),
+      el('span', { className: 'badge' + (pct > 0 ? '' : ' none') }, pct > 0 ? `−${pct}%` : tr('u_nogain', 'No gain')));
+    if (item.result.note) meta.append(el('span', {}, tr('u_optimized', 'Already well optimized')));
+    const dl = el('a', { className: 'btn small', href: item.resultUrl, download: item.result.name }, tr('u_download', 'Download'));
+    const cmp = el('button', { className: 'btn small ghost', type: 'button', onclick: () => openCompare(item) }, tr('u_compare', 'Compare'));
     thumb.classList.add('zoomable');
-    thumb.title = 'Compare before and after';
+    thumb.title = tr('u_compare_title', 'Compare before and after');
     thumb.onclick = () => openCompare(item);
     row.append(meta, el('div', { className: 'actions' }, cmp, dl, removeBtn(item)));
   }
@@ -367,7 +384,7 @@
 
   function removeBtn(item) {
     return el('button', {
-      className: 'x', type: 'button', title: 'Remove', ariaLabel: 'Remove ' + item.file.name,
+      className: 'x', type: 'button', title: tr('u_remove', 'Remove'), ariaLabel: tr('u_remove', 'Remove') + ' ' + item.file.name,
       onclick: () => remove(item.id),
     }, '×');
   }
@@ -393,15 +410,16 @@
     const pct = before ? Math.round((saved / before) * 100) : 0;
     const waiting = all.filter((i) => !i.result && !i.error).length;
     $('#summary-text').replaceChildren(
-      `${done.length} image${done.length > 1 ? 's' : ''} · saved `, el('b', {}, `${fmtBytes(saved)} (${pct}%)`),
-      waiting > 0 ? ` · ${waiting} more in progress` : '');
+      done.length > 1 ? tr('u_sum_many', '{n} images · saved ', { n: done.length }) : tr('u_sum_one', '1 image · saved '),
+      el('b', {}, `${fmtBytes(saved)} (${pct}%)`),
+      waiting > 0 ? tr('u_more', ' · {n} more in progress', { n: waiting }) : '');
     zipBtn.hidden = done.length < 2;
   }
 
   function run(item) {
     const token = ++item.token;
     item.error = null;
-    item.status = 'Waiting…';
+    item.status = tr('u_waiting', 'Waiting…');
     freeUrls(item);
     item.result = null;
     render(item);
@@ -422,7 +440,7 @@
     list.hidden = items.size === 0;
     if (skipped.length) {
       const msg = el('div', { className: 'row err' },
-        el('div', { className: 'name' }, 'Skipped (unsupported type): ' + skipped.join(', ')));
+        el('div', { className: 'name' }, tr('u_skipped', 'Skipped (unsupported type): ') + skipped.join(', ')));
       msg.style.gridTemplateColumns = '1fr';
       list.prepend(msg);
       setTimeout(() => msg.remove(), 6000);
@@ -496,7 +514,7 @@
     if (!done.length) return;
     const label = zipBtn.textContent;
     zipBtn.disabled = true;
-    zipBtn.textContent = 'Zipping…';
+    zipBtn.textContent = tr('u_zipping', 'Zipping…');
     try {
       await loadScript(CDN.jszip);
       const zip = new window.JSZip();
@@ -513,7 +531,7 @@
       a.click();
       setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 1000);
     } catch {
-      alert('Could not create the ZIP. Please download the images one by one.');
+      alert(tr('u_zip_fail', 'Could not create the ZIP. Please download the images one by one.'));
     } finally {
       zipBtn.disabled = false;
       zipBtn.textContent = label;

@@ -16,6 +16,21 @@ Image Compressor Now is a static website. All compression happens on the visitor
 - [How to compress an image without losing quality](https://imagecompressornow.com/blog/compress-image-without-losing-quality): Lossless vs lossy, the 75 to 85 percent quality sweet spot, and right-sizing dimensions.
 - [How to compress iPhone photos](https://imagecompressornow.com/blog/compress-iphone-photos): Convert HEIC to a smaller JPG or WebP in the browser, with email size and privacy tips.
 
+## Languages
+
+The tool and home page are available in 10 languages (the guides and policy pages are in English):
+
+- [English](https://imagecompressornow.com/)
+- [中文](https://imagecompressornow.com/zh)
+- [हिन्दी](https://imagecompressornow.com/hi)
+- [Español](https://imagecompressornow.com/es)
+- [Français](https://imagecompressornow.com/fr)
+- [العربية](https://imagecompressornow.com/ar)
+- [বাংলা](https://imagecompressornow.com/bn)
+- [Português](https://imagecompressornow.com/pt)
+- [Русский](https://imagecompressornow.com/ru)
+- [اردو](https://imagecompressornow.com/ur)
+
 ## Policies
 
 - [Privacy Policy](https://imagecompressornow.com/privacy): Images are not uploaded or stored.
