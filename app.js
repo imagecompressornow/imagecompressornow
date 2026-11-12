@@ -62,7 +62,7 @@
   const isSupported = (f) => /^image\/(jpeg|png|webp|avif)$/.test(f.type) || isHeic(f);
   const avifQuality = (q01) => {
     const slider = Math.round(q01 * 100);
-    return Math.round(slider <= 90 ? slider * 0.7 : 63 + (slider - 90) * 2.7); // AVIF scale runs lower than JPEG
+    return Math.round(slider <= 90 ? slider * 0.78 : 70 + (slider - 90) * 2); // AVIF scale runs lower than JPEG
   };
 
   // Detect which output encoders this browser really has.
@@ -89,7 +89,7 @@
   let useWorkers = typeof Worker !== 'undefined' && typeof OffscreenCanvas !== 'undefined' &&
     typeof createImageBitmap === 'function' && 'convertToBlob' in OffscreenCanvas.prototype;
   const MAX_PAR = useWorkers
-    ? Math.max(1, Math.min(3, Math.floor((navigator.hardwareConcurrency || 4) / 2)))
+    ? Math.max(1, Math.min(2, Math.floor((navigator.hardwareConcurrency || 4) / 2)))
     : 1;
   const pool = { all: [], idle: [] };
   const pending = new Map(); // job id -> { res, rej, worker, item }
@@ -187,7 +187,25 @@
     const canvas = el('canvas', { width: w, height: h });
     const ctx = canvas.getContext('2d');
     if (type === 'image/jpeg') { ctx.fillStyle = '#fff'; ctx.fillRect(0, 0, w, h); }
-    ctx.drawImage(bmp, 0, 0, w, h);
+    ctx.imageSmoothingEnabled = true;
+    ctx.imageSmoothingQuality = 'high';
+    if (w === w0 && h === h0) {
+      ctx.drawImage(bmp, 0, 0);
+    } else {
+      // halve repeatedly (area averaging), then one smooth final step: avoids jagged, aliased edges
+      let cur = bmp, cw = w0, ch = h0;
+      while (cw / 2 >= w && ch / 2 >= h) {
+        const nw = Math.max(w, Math.round(cw / 2)), nh = Math.max(h, Math.round(ch / 2));
+        const c = el('canvas', { width: nw, height: nh });
+        const x = c.getContext('2d');
+        x.imageSmoothingQuality = 'high';
+        x.drawImage(cur, 0, 0, nw, nh);
+        if (cur !== bmp) { cur.width = 0; cur.height = 0; }
+        cur = c; cw = nw; ch = nh;
+      }
+      ctx.drawImage(cur, 0, 0, w, h);
+      if (cur !== bmp) { cur.width = 0; cur.height = 0; }
+    }
     if (bmp.close) bmp.close();
 
     const s = Math.min(1, 160 / Math.max(w, h));
