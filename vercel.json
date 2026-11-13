@@ -4,41 +4,471 @@
   "redirects": [
     {
       "source": "/",
-      "has": [{ "type": "host", "value": "imagecompressornow.vercel.app" }],
+      "has": [
+        {
+          "type": "host",
+          "value": "imagecompressornow.vercel.app"
+        }
+      ],
       "destination": "https://imagecompressornow.com/",
       "permanent": true
     },
     {
       "source": "/:path*",
-      "has": [{ "type": "host", "value": "imagecompressornow.vercel.app" }],
+      "has": [
+        {
+          "type": "host",
+          "value": "imagecompressornow.vercel.app"
+        }
+      ],
       "destination": "https://imagecompressornow.com/:path*",
       "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "header",
+          "key": "x-vercel-ip-country",
+          "value": "^(SA|AE|EG|IQ|JO|KW|QA|BH|OM|LB|MA|DZ|TN|LY|SD|YE|SY|PS|MR)$"
+        }
+      ],
+      "missing": [
+        {
+          "type": "cookie",
+          "key": "ic_lang"
+        },
+        {
+          "type": "header",
+          "key": "user-agent",
+          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
+        }
+      ],
+      "destination": "/ar",
+      "permanent": false
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "header",
+          "key": "x-vercel-ip-country",
+          "value": "^(PK)$"
+        }
+      ],
+      "missing": [
+        {
+          "type": "cookie",
+          "key": "ic_lang"
+        },
+        {
+          "type": "header",
+          "key": "user-agent",
+          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
+        }
+      ],
+      "destination": "/ur",
+      "permanent": false
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "header",
+          "key": "x-vercel-ip-country",
+          "value": "^(BD)$"
+        }
+      ],
+      "missing": [
+        {
+          "type": "cookie",
+          "key": "ic_lang"
+        },
+        {
+          "type": "header",
+          "key": "user-agent",
+          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
+        }
+      ],
+      "destination": "/bn",
+      "permanent": false
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "header",
+          "key": "x-vercel-ip-country",
+          "value": "^(CN|TW|HK|MO)$"
+        }
+      ],
+      "missing": [
+        {
+          "type": "cookie",
+          "key": "ic_lang"
+        },
+        {
+          "type": "header",
+          "key": "user-agent",
+          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
+        }
+      ],
+      "destination": "/zh",
+      "permanent": false
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "header",
+          "key": "x-vercel-ip-country",
+          "value": "^(ES|MX|AR|CO|CL|PE|VE|EC|GT|CU|BO|DO|HN|PY|SV|NI|CR|PA|UY|PR)$"
+        }
+      ],
+      "missing": [
+        {
+          "type": "cookie",
+          "key": "ic_lang"
+        },
+        {
+          "type": "header",
+          "key": "user-agent",
+          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
+        }
+      ],
+      "destination": "/es",
+      "permanent": false
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "header",
+          "key": "x-vercel-ip-country",
+          "value": "^(FR|MC|SN|CI|CM|ML|BF|NE|TD|GN|BJ|TG|GA|MG|CD|HT)$"
+        }
+      ],
+      "missing": [
+        {
+          "type": "cookie",
+          "key": "ic_lang"
+        },
+        {
+          "type": "header",
+          "key": "user-agent",
+          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
+        }
+      ],
+      "destination": "/fr",
+      "permanent": false
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "header",
+          "key": "x-vercel-ip-country",
+          "value": "^(BR|PT|AO|MZ)$"
+        }
+      ],
+      "missing": [
+        {
+          "type": "cookie",
+          "key": "ic_lang"
+        },
+        {
+          "type": "header",
+          "key": "user-agent",
+          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
+        }
+      ],
+      "destination": "/pt",
+      "permanent": false
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "header",
+          "key": "x-vercel-ip-country",
+          "value": "^(RU|BY|KZ|KG)$"
+        }
+      ],
+      "missing": [
+        {
+          "type": "cookie",
+          "key": "ic_lang"
+        },
+        {
+          "type": "header",
+          "key": "user-agent",
+          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
+        }
+      ],
+      "destination": "/ru",
+      "permanent": false
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "header",
+          "key": "accept-language",
+          "value": "^hi"
+        }
+      ],
+      "missing": [
+        {
+          "type": "cookie",
+          "key": "ic_lang"
+        },
+        {
+          "type": "header",
+          "key": "user-agent",
+          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
+        }
+      ],
+      "destination": "/hi",
+      "permanent": false
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "header",
+          "key": "accept-language",
+          "value": "^ar"
+        }
+      ],
+      "missing": [
+        {
+          "type": "cookie",
+          "key": "ic_lang"
+        },
+        {
+          "type": "header",
+          "key": "user-agent",
+          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
+        }
+      ],
+      "destination": "/ar",
+      "permanent": false
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "header",
+          "key": "accept-language",
+          "value": "^ur"
+        }
+      ],
+      "missing": [
+        {
+          "type": "cookie",
+          "key": "ic_lang"
+        },
+        {
+          "type": "header",
+          "key": "user-agent",
+          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
+        }
+      ],
+      "destination": "/ur",
+      "permanent": false
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "header",
+          "key": "accept-language",
+          "value": "^bn"
+        }
+      ],
+      "missing": [
+        {
+          "type": "cookie",
+          "key": "ic_lang"
+        },
+        {
+          "type": "header",
+          "key": "user-agent",
+          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
+        }
+      ],
+      "destination": "/bn",
+      "permanent": false
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "header",
+          "key": "accept-language",
+          "value": "^zh"
+        }
+      ],
+      "missing": [
+        {
+          "type": "cookie",
+          "key": "ic_lang"
+        },
+        {
+          "type": "header",
+          "key": "user-agent",
+          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
+        }
+      ],
+      "destination": "/zh",
+      "permanent": false
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "header",
+          "key": "accept-language",
+          "value": "^es"
+        }
+      ],
+      "missing": [
+        {
+          "type": "cookie",
+          "key": "ic_lang"
+        },
+        {
+          "type": "header",
+          "key": "user-agent",
+          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
+        }
+      ],
+      "destination": "/es",
+      "permanent": false
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "header",
+          "key": "accept-language",
+          "value": "^fr"
+        }
+      ],
+      "missing": [
+        {
+          "type": "cookie",
+          "key": "ic_lang"
+        },
+        {
+          "type": "header",
+          "key": "user-agent",
+          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
+        }
+      ],
+      "destination": "/fr",
+      "permanent": false
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "header",
+          "key": "accept-language",
+          "value": "^pt"
+        }
+      ],
+      "missing": [
+        {
+          "type": "cookie",
+          "key": "ic_lang"
+        },
+        {
+          "type": "header",
+          "key": "user-agent",
+          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
+        }
+      ],
+      "destination": "/pt",
+      "permanent": false
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "header",
+          "key": "accept-language",
+          "value": "^ru"
+        }
+      ],
+      "missing": [
+        {
+          "type": "cookie",
+          "key": "ic_lang"
+        },
+        {
+          "type": "header",
+          "key": "user-agent",
+          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
+        }
+      ],
+      "destination": "/ru",
+      "permanent": false
     }
   ],
   "headers": [
     {
       "source": "/(.*)",
       "headers": [
-        { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
-        { "key": "X-Frame-Options", "value": "SAMEORIGIN" }
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        }
       ]
     },
     {
       "source": "/(style.css|app.js|home.js|page.js|compress-worker.js|compare.js|lang.js|favicon.svg)",
-      "headers": [{ "key": "Cache-Control", "value": "public, max-age=86400, must-revalidate" }]
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400, must-revalidate"
+        }
+      ]
     },
     {
       "source": "/vendor/(.*)",
-      "headers": [{ "key": "Cache-Control", "value": "public, max-age=2592000" }]
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=2592000"
+        }
+      ]
     },
     {
       "source": "/fonts/(.*)",
-      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
     },
     {
       "source": "/llms.txt",
-      "headers": [{ "key": "Content-Type", "value": "text/plain; charset=utf-8" }]
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "text/plain; charset=utf-8"
+        }
+      ]
     }
   ]
 }
