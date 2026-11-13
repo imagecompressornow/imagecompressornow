@@ -623,3 +623,15 @@ html[dir="rtl"] .steps li::after, html[dir="rtl"] .features li::after { transfor
   .hero-badges { gap: 6px 18px; }
   .hero-badges li + li::before { display: none; }
 }
+
+/* HTML sitemap page */
+.sm-wrap { padding-top: 40px; padding-bottom: 64px; }
+.sm-jump { margin: 0 0 28px; line-height: 2; }
+.sm-jump a { white-space: nowrap; }
+.sm-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 16px; }
+.sm-lang { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 20px 22px; box-shadow: 0 1px 2px rgba(60, 30, 10, .04); }
+.sm-lang h2 { margin: 0 0 12px; font-size: 1.15rem; letter-spacing: 0; scroll-margin-top: 90px; }
+.sm-lang ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; }
+.sm-lang li { line-height: 1.4; }
+.sm-lang a { color: inherit; text-decoration: none; border-bottom: 1px solid rgba(234, 88, 12, .25); }
+.sm-lang a:hover { color: var(--brand, #ea580c); border-bottom-color: currentColor; }

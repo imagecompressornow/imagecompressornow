@@ -1530,4 +1530,10 @@
     <xhtml:link rel="alternate" hreflang="ur" href="https://imagecompressornow.com/ur/terms"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://imagecompressornow.com/terms"/>
   </url>
+  <url>
+    <loc>https://imagecompressornow.com/sitemap</loc>
+    <lastmod>2026-11-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
 </urlset>
