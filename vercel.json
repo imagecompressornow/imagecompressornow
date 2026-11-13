@@ -23,6 +23,536 @@
       ],
       "destination": "https://imagecompressornow.com/:path*",
       "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "cookie",
+          "key": "ic_lang",
+          "value": "^zh$"
+        }
+      ],
+      "missing": [],
+      "destination": "/zh",
+      "permanent": false
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "cookie",
+          "key": "ic_lang",
+          "value": "^hi$"
+        }
+      ],
+      "missing": [],
+      "destination": "/hi",
+      "permanent": false
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "cookie",
+          "key": "ic_lang",
+          "value": "^es$"
+        }
+      ],
+      "missing": [],
+      "destination": "/es",
+      "permanent": false
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "cookie",
+          "key": "ic_lang",
+          "value": "^fr$"
+        }
+      ],
+      "missing": [],
+      "destination": "/fr",
+      "permanent": false
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "cookie",
+          "key": "ic_lang",
+          "value": "^ar$"
+        }
+      ],
+      "missing": [],
+      "destination": "/ar",
+      "permanent": false
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "cookie",
+          "key": "ic_lang",
+          "value": "^bn$"
+        }
+      ],
+      "missing": [],
+      "destination": "/bn",
+      "permanent": false
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "cookie",
+          "key": "ic_lang",
+          "value": "^pt$"
+        }
+      ],
+      "missing": [],
+      "destination": "/pt",
+      "permanent": false
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "cookie",
+          "key": "ic_lang",
+          "value": "^ru$"
+        }
+      ],
+      "missing": [],
+      "destination": "/ru",
+      "permanent": false
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "cookie",
+          "key": "ic_lang",
+          "value": "^ur$"
+        }
+      ],
+      "missing": [],
+      "destination": "/ur",
+      "permanent": false
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "header",
+          "key": "x-vercel-ip-country",
+          "value": "^(SA|AE|EG|IQ|JO|KW|QA|BH|OM|LB|MA|DZ|TN|LY|SD|YE|SY|PS|MR)$"
+        }
+      ],
+      "missing": [
+        {
+          "type": "cookie",
+          "key": "ic_lang"
+        },
+        {
+          "type": "header",
+          "key": "user-agent",
+          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
+        }
+      ],
+      "destination": "/ar",
+      "permanent": false
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "header",
+          "key": "x-vercel-ip-country",
+          "value": "^(BD)$"
+        }
+      ],
+      "missing": [
+        {
+          "type": "cookie",
+          "key": "ic_lang"
+        },
+        {
+          "type": "header",
+          "key": "user-agent",
+          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
+        }
+      ],
+      "destination": "/bn",
+      "permanent": false
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "header",
+          "key": "x-vercel-ip-country",
+          "value": "^(CN|TW|HK|MO)$"
+        }
+      ],
+      "missing": [
+        {
+          "type": "cookie",
+          "key": "ic_lang"
+        },
+        {
+          "type": "header",
+          "key": "user-agent",
+          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
+        }
+      ],
+      "destination": "/zh",
+      "permanent": false
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "header",
+          "key": "x-vercel-ip-country",
+          "value": "^(ES|MX|AR|CO|CL|PE|VE|EC|GT|CU|BO|DO|HN|PY|SV|NI|CR|PA|UY|PR)$"
+        }
+      ],
+      "missing": [
+        {
+          "type": "cookie",
+          "key": "ic_lang"
+        },
+        {
+          "type": "header",
+          "key": "user-agent",
+          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
+        }
+      ],
+      "destination": "/es",
+      "permanent": false
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "header",
+          "key": "x-vercel-ip-country",
+          "value": "^(FR|MC|SN|CI|CM|ML|BF|NE|TD|GN|BJ|TG|GA|MG|CD|HT)$"
+        }
+      ],
+      "missing": [
+        {
+          "type": "cookie",
+          "key": "ic_lang"
+        },
+        {
+          "type": "header",
+          "key": "user-agent",
+          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
+        }
+      ],
+      "destination": "/fr",
+      "permanent": false
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "header",
+          "key": "x-vercel-ip-country",
+          "value": "^(BR|PT|AO|MZ)$"
+        }
+      ],
+      "missing": [
+        {
+          "type": "cookie",
+          "key": "ic_lang"
+        },
+        {
+          "type": "header",
+          "key": "user-agent",
+          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
+        }
+      ],
+      "destination": "/pt",
+      "permanent": false
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "header",
+          "key": "x-vercel-ip-country",
+          "value": "^(RU|BY|KZ|KG)$"
+        }
+      ],
+      "missing": [
+        {
+          "type": "cookie",
+          "key": "ic_lang"
+        },
+        {
+          "type": "header",
+          "key": "user-agent",
+          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
+        }
+      ],
+      "destination": "/ru",
+      "permanent": false
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "header",
+          "key": "accept-language",
+          "value": "^zh"
+        }
+      ],
+      "missing": [
+        {
+          "type": "cookie",
+          "key": "ic_lang"
+        },
+        {
+          "type": "header",
+          "key": "user-agent",
+          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
+        },
+        {
+          "type": "header",
+          "key": "x-vercel-ip-country",
+          "value": "^(PK|US)$"
+        }
+      ],
+      "destination": "/zh",
+      "permanent": false
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "header",
+          "key": "accept-language",
+          "value": "^hi"
+        }
+      ],
+      "missing": [
+        {
+          "type": "cookie",
+          "key": "ic_lang"
+        },
+        {
+          "type": "header",
+          "key": "user-agent",
+          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
+        },
+        {
+          "type": "header",
+          "key": "x-vercel-ip-country",
+          "value": "^(PK|US)$"
+        }
+      ],
+      "destination": "/hi",
+      "permanent": false
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "header",
+          "key": "accept-language",
+          "value": "^es"
+        }
+      ],
+      "missing": [
+        {
+          "type": "cookie",
+          "key": "ic_lang"
+        },
+        {
+          "type": "header",
+          "key": "user-agent",
+          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
+        },
+        {
+          "type": "header",
+          "key": "x-vercel-ip-country",
+          "value": "^(PK|US)$"
+        }
+      ],
+      "destination": "/es",
+      "permanent": false
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "header",
+          "key": "accept-language",
+          "value": "^fr"
+        }
+      ],
+      "missing": [
+        {
+          "type": "cookie",
+          "key": "ic_lang"
+        },
+        {
+          "type": "header",
+          "key": "user-agent",
+          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
+        },
+        {
+          "type": "header",
+          "key": "x-vercel-ip-country",
+          "value": "^(PK|US)$"
+        }
+      ],
+      "destination": "/fr",
+      "permanent": false
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "header",
+          "key": "accept-language",
+          "value": "^ar"
+        }
+      ],
+      "missing": [
+        {
+          "type": "cookie",
+          "key": "ic_lang"
+        },
+        {
+          "type": "header",
+          "key": "user-agent",
+          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
+        },
+        {
+          "type": "header",
+          "key": "x-vercel-ip-country",
+          "value": "^(PK|US)$"
+        }
+      ],
+      "destination": "/ar",
+      "permanent": false
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "header",
+          "key": "accept-language",
+          "value": "^bn"
+        }
+      ],
+      "missing": [
+        {
+          "type": "cookie",
+          "key": "ic_lang"
+        },
+        {
+          "type": "header",
+          "key": "user-agent",
+          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
+        },
+        {
+          "type": "header",
+          "key": "x-vercel-ip-country",
+          "value": "^(PK|US)$"
+        }
+      ],
+      "destination": "/bn",
+      "permanent": false
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "header",
+          "key": "accept-language",
+          "value": "^pt"
+        }
+      ],
+      "missing": [
+        {
+          "type": "cookie",
+          "key": "ic_lang"
+        },
+        {
+          "type": "header",
+          "key": "user-agent",
+          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
+        },
+        {
+          "type": "header",
+          "key": "x-vercel-ip-country",
+          "value": "^(PK|US)$"
+        }
+      ],
+      "destination": "/pt",
+      "permanent": false
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "header",
+          "key": "accept-language",
+          "value": "^ru"
+        }
+      ],
+      "missing": [
+        {
+          "type": "cookie",
+          "key": "ic_lang"
+        },
+        {
+          "type": "header",
+          "key": "user-agent",
+          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
+        },
+        {
+          "type": "header",
+          "key": "x-vercel-ip-country",
+          "value": "^(PK|US)$"
+        }
+      ],
+      "destination": "/ru",
+      "permanent": false
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "header",
+          "key": "accept-language",
+          "value": "^ur"
+        }
+      ],
+      "missing": [
+        {
+          "type": "cookie",
+          "key": "ic_lang"
+        },
+        {
+          "type": "header",
+          "key": "user-agent",
+          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
+        },
+        {
+          "type": "header",
+          "key": "x-vercel-ip-country",
+          "value": "^(PK|US)$"
+        }
+      ],
+      "destination": "/ur",
+      "permanent": false
     }
   ],
   "headers": [
@@ -78,2924 +608,6 @@
           "value": "text/plain; charset=utf-8"
         }
       ]
-    }
-  ],
-  "rewrites": [
-    {
-      "source": "/",
-      "has": [
-        {
-          "type": "cookie",
-          "key": "ic_lang",
-          "value": "^zh$"
-        }
-      ],
-      "missing": [],
-      "destination": "/zh"
-    },
-    {
-      "source": "/blog",
-      "has": [
-        {
-          "type": "cookie",
-          "key": "ic_lang",
-          "value": "^zh$"
-        }
-      ],
-      "missing": [],
-      "destination": "/zh/blog"
-    },
-    {
-      "source": "/blog/:slug",
-      "has": [
-        {
-          "type": "cookie",
-          "key": "ic_lang",
-          "value": "^zh$"
-        }
-      ],
-      "missing": [],
-      "destination": "/zh/blog/:slug"
-    },
-    {
-      "source": "/privacy",
-      "has": [
-        {
-          "type": "cookie",
-          "key": "ic_lang",
-          "value": "^zh$"
-        }
-      ],
-      "missing": [],
-      "destination": "/zh/privacy"
-    },
-    {
-      "source": "/terms",
-      "has": [
-        {
-          "type": "cookie",
-          "key": "ic_lang",
-          "value": "^zh$"
-        }
-      ],
-      "missing": [],
-      "destination": "/zh/terms"
-    },
-    {
-      "source": "/contact",
-      "has": [
-        {
-          "type": "cookie",
-          "key": "ic_lang",
-          "value": "^zh$"
-        }
-      ],
-      "missing": [],
-      "destination": "/zh/contact"
-    },
-    {
-      "source": "/",
-      "has": [
-        {
-          "type": "cookie",
-          "key": "ic_lang",
-          "value": "^hi$"
-        }
-      ],
-      "missing": [],
-      "destination": "/hi"
-    },
-    {
-      "source": "/blog",
-      "has": [
-        {
-          "type": "cookie",
-          "key": "ic_lang",
-          "value": "^hi$"
-        }
-      ],
-      "missing": [],
-      "destination": "/hi/blog"
-    },
-    {
-      "source": "/blog/:slug",
-      "has": [
-        {
-          "type": "cookie",
-          "key": "ic_lang",
-          "value": "^hi$"
-        }
-      ],
-      "missing": [],
-      "destination": "/hi/blog/:slug"
-    },
-    {
-      "source": "/privacy",
-      "has": [
-        {
-          "type": "cookie",
-          "key": "ic_lang",
-          "value": "^hi$"
-        }
-      ],
-      "missing": [],
-      "destination": "/hi/privacy"
-    },
-    {
-      "source": "/terms",
-      "has": [
-        {
-          "type": "cookie",
-          "key": "ic_lang",
-          "value": "^hi$"
-        }
-      ],
-      "missing": [],
-      "destination": "/hi/terms"
-    },
-    {
-      "source": "/contact",
-      "has": [
-        {
-          "type": "cookie",
-          "key": "ic_lang",
-          "value": "^hi$"
-        }
-      ],
-      "missing": [],
-      "destination": "/hi/contact"
-    },
-    {
-      "source": "/",
-      "has": [
-        {
-          "type": "cookie",
-          "key": "ic_lang",
-          "value": "^es$"
-        }
-      ],
-      "missing": [],
-      "destination": "/es"
-    },
-    {
-      "source": "/blog",
-      "has": [
-        {
-          "type": "cookie",
-          "key": "ic_lang",
-          "value": "^es$"
-        }
-      ],
-      "missing": [],
-      "destination": "/es/blog"
-    },
-    {
-      "source": "/blog/:slug",
-      "has": [
-        {
-          "type": "cookie",
-          "key": "ic_lang",
-          "value": "^es$"
-        }
-      ],
-      "missing": [],
-      "destination": "/es/blog/:slug"
-    },
-    {
-      "source": "/privacy",
-      "has": [
-        {
-          "type": "cookie",
-          "key": "ic_lang",
-          "value": "^es$"
-        }
-      ],
-      "missing": [],
-      "destination": "/es/privacy"
-    },
-    {
-      "source": "/terms",
-      "has": [
-        {
-          "type": "cookie",
-          "key": "ic_lang",
-          "value": "^es$"
-        }
-      ],
-      "missing": [],
-      "destination": "/es/terms"
-    },
-    {
-      "source": "/contact",
-      "has": [
-        {
-          "type": "cookie",
-          "key": "ic_lang",
-          "value": "^es$"
-        }
-      ],
-      "missing": [],
-      "destination": "/es/contact"
-    },
-    {
-      "source": "/",
-      "has": [
-        {
-          "type": "cookie",
-          "key": "ic_lang",
-          "value": "^fr$"
-        }
-      ],
-      "missing": [],
-      "destination": "/fr"
-    },
-    {
-      "source": "/blog",
-      "has": [
-        {
-          "type": "cookie",
-          "key": "ic_lang",
-          "value": "^fr$"
-        }
-      ],
-      "missing": [],
-      "destination": "/fr/blog"
-    },
-    {
-      "source": "/blog/:slug",
-      "has": [
-        {
-          "type": "cookie",
-          "key": "ic_lang",
-          "value": "^fr$"
-        }
-      ],
-      "missing": [],
-      "destination": "/fr/blog/:slug"
-    },
-    {
-      "source": "/privacy",
-      "has": [
-        {
-          "type": "cookie",
-          "key": "ic_lang",
-          "value": "^fr$"
-        }
-      ],
-      "missing": [],
-      "destination": "/fr/privacy"
-    },
-    {
-      "source": "/terms",
-      "has": [
-        {
-          "type": "cookie",
-          "key": "ic_lang",
-          "value": "^fr$"
-        }
-      ],
-      "missing": [],
-      "destination": "/fr/terms"
-    },
-    {
-      "source": "/contact",
-      "has": [
-        {
-          "type": "cookie",
-          "key": "ic_lang",
-          "value": "^fr$"
-        }
-      ],
-      "missing": [],
-      "destination": "/fr/contact"
-    },
-    {
-      "source": "/",
-      "has": [
-        {
-          "type": "cookie",
-          "key": "ic_lang",
-          "value": "^ar$"
-        }
-      ],
-      "missing": [],
-      "destination": "/ar"
-    },
-    {
-      "source": "/blog",
-      "has": [
-        {
-          "type": "cookie",
-          "key": "ic_lang",
-          "value": "^ar$"
-        }
-      ],
-      "missing": [],
-      "destination": "/ar/blog"
-    },
-    {
-      "source": "/blog/:slug",
-      "has": [
-        {
-          "type": "cookie",
-          "key": "ic_lang",
-          "value": "^ar$"
-        }
-      ],
-      "missing": [],
-      "destination": "/ar/blog/:slug"
-    },
-    {
-      "source": "/privacy",
-      "has": [
-        {
-          "type": "cookie",
-          "key": "ic_lang",
-          "value": "^ar$"
-        }
-      ],
-      "missing": [],
-      "destination": "/ar/privacy"
-    },
-    {
-      "source": "/terms",
-      "has": [
-        {
-          "type": "cookie",
-          "key": "ic_lang",
-          "value": "^ar$"
-        }
-      ],
-      "missing": [],
-      "destination": "/ar/terms"
-    },
-    {
-      "source": "/contact",
-      "has": [
-        {
-          "type": "cookie",
-          "key": "ic_lang",
-          "value": "^ar$"
-        }
-      ],
-      "missing": [],
-      "destination": "/ar/contact"
-    },
-    {
-      "source": "/",
-      "has": [
-        {
-          "type": "cookie",
-          "key": "ic_lang",
-          "value": "^bn$"
-        }
-      ],
-      "missing": [],
-      "destination": "/bn"
-    },
-    {
-      "source": "/blog",
-      "has": [
-        {
-          "type": "cookie",
-          "key": "ic_lang",
-          "value": "^bn$"
-        }
-      ],
-      "missing": [],
-      "destination": "/bn/blog"
-    },
-    {
-      "source": "/blog/:slug",
-      "has": [
-        {
-          "type": "cookie",
-          "key": "ic_lang",
-          "value": "^bn$"
-        }
-      ],
-      "missing": [],
-      "destination": "/bn/blog/:slug"
-    },
-    {
-      "source": "/privacy",
-      "has": [
-        {
-          "type": "cookie",
-          "key": "ic_lang",
-          "value": "^bn$"
-        }
-      ],
-      "missing": [],
-      "destination": "/bn/privacy"
-    },
-    {
-      "source": "/terms",
-      "has": [
-        {
-          "type": "cookie",
-          "key": "ic_lang",
-          "value": "^bn$"
-        }
-      ],
-      "missing": [],
-      "destination": "/bn/terms"
-    },
-    {
-      "source": "/contact",
-      "has": [
-        {
-          "type": "cookie",
-          "key": "ic_lang",
-          "value": "^bn$"
-        }
-      ],
-      "missing": [],
-      "destination": "/bn/contact"
-    },
-    {
-      "source": "/",
-      "has": [
-        {
-          "type": "cookie",
-          "key": "ic_lang",
-          "value": "^pt$"
-        }
-      ],
-      "missing": [],
-      "destination": "/pt"
-    },
-    {
-      "source": "/blog",
-      "has": [
-        {
-          "type": "cookie",
-          "key": "ic_lang",
-          "value": "^pt$"
-        }
-      ],
-      "missing": [],
-      "destination": "/pt/blog"
-    },
-    {
-      "source": "/blog/:slug",
-      "has": [
-        {
-          "type": "cookie",
-          "key": "ic_lang",
-          "value": "^pt$"
-        }
-      ],
-      "missing": [],
-      "destination": "/pt/blog/:slug"
-    },
-    {
-      "source": "/privacy",
-      "has": [
-        {
-          "type": "cookie",
-          "key": "ic_lang",
-          "value": "^pt$"
-        }
-      ],
-      "missing": [],
-      "destination": "/pt/privacy"
-    },
-    {
-      "source": "/terms",
-      "has": [
-        {
-          "type": "cookie",
-          "key": "ic_lang",
-          "value": "^pt$"
-        }
-      ],
-      "missing": [],
-      "destination": "/pt/terms"
-    },
-    {
-      "source": "/contact",
-      "has": [
-        {
-          "type": "cookie",
-          "key": "ic_lang",
-          "value": "^pt$"
-        }
-      ],
-      "missing": [],
-      "destination": "/pt/contact"
-    },
-    {
-      "source": "/",
-      "has": [
-        {
-          "type": "cookie",
-          "key": "ic_lang",
-          "value": "^ru$"
-        }
-      ],
-      "missing": [],
-      "destination": "/ru"
-    },
-    {
-      "source": "/blog",
-      "has": [
-        {
-          "type": "cookie",
-          "key": "ic_lang",
-          "value": "^ru$"
-        }
-      ],
-      "missing": [],
-      "destination": "/ru/blog"
-    },
-    {
-      "source": "/blog/:slug",
-      "has": [
-        {
-          "type": "cookie",
-          "key": "ic_lang",
-          "value": "^ru$"
-        }
-      ],
-      "missing": [],
-      "destination": "/ru/blog/:slug"
-    },
-    {
-      "source": "/privacy",
-      "has": [
-        {
-          "type": "cookie",
-          "key": "ic_lang",
-          "value": "^ru$"
-        }
-      ],
-      "missing": [],
-      "destination": "/ru/privacy"
-    },
-    {
-      "source": "/terms",
-      "has": [
-        {
-          "type": "cookie",
-          "key": "ic_lang",
-          "value": "^ru$"
-        }
-      ],
-      "missing": [],
-      "destination": "/ru/terms"
-    },
-    {
-      "source": "/contact",
-      "has": [
-        {
-          "type": "cookie",
-          "key": "ic_lang",
-          "value": "^ru$"
-        }
-      ],
-      "missing": [],
-      "destination": "/ru/contact"
-    },
-    {
-      "source": "/",
-      "has": [
-        {
-          "type": "cookie",
-          "key": "ic_lang",
-          "value": "^ur$"
-        }
-      ],
-      "missing": [],
-      "destination": "/ur"
-    },
-    {
-      "source": "/blog",
-      "has": [
-        {
-          "type": "cookie",
-          "key": "ic_lang",
-          "value": "^ur$"
-        }
-      ],
-      "missing": [],
-      "destination": "/ur/blog"
-    },
-    {
-      "source": "/blog/:slug",
-      "has": [
-        {
-          "type": "cookie",
-          "key": "ic_lang",
-          "value": "^ur$"
-        }
-      ],
-      "missing": [],
-      "destination": "/ur/blog/:slug"
-    },
-    {
-      "source": "/privacy",
-      "has": [
-        {
-          "type": "cookie",
-          "key": "ic_lang",
-          "value": "^ur$"
-        }
-      ],
-      "missing": [],
-      "destination": "/ur/privacy"
-    },
-    {
-      "source": "/terms",
-      "has": [
-        {
-          "type": "cookie",
-          "key": "ic_lang",
-          "value": "^ur$"
-        }
-      ],
-      "missing": [],
-      "destination": "/ur/terms"
-    },
-    {
-      "source": "/contact",
-      "has": [
-        {
-          "type": "cookie",
-          "key": "ic_lang",
-          "value": "^ur$"
-        }
-      ],
-      "missing": [],
-      "destination": "/ur/contact"
-    },
-    {
-      "source": "/",
-      "has": [
-        {
-          "type": "header",
-          "key": "x-vercel-ip-country",
-          "value": "^(SA|AE|EG|IQ|JO|KW|QA|BH|OM|LB|MA|DZ|TN|LY|SD|YE|SY|PS|MR)$"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/ar"
-    },
-    {
-      "source": "/blog",
-      "has": [
-        {
-          "type": "header",
-          "key": "x-vercel-ip-country",
-          "value": "^(SA|AE|EG|IQ|JO|KW|QA|BH|OM|LB|MA|DZ|TN|LY|SD|YE|SY|PS|MR)$"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/ar/blog"
-    },
-    {
-      "source": "/blog/:slug",
-      "has": [
-        {
-          "type": "header",
-          "key": "x-vercel-ip-country",
-          "value": "^(SA|AE|EG|IQ|JO|KW|QA|BH|OM|LB|MA|DZ|TN|LY|SD|YE|SY|PS|MR)$"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/ar/blog/:slug"
-    },
-    {
-      "source": "/privacy",
-      "has": [
-        {
-          "type": "header",
-          "key": "x-vercel-ip-country",
-          "value": "^(SA|AE|EG|IQ|JO|KW|QA|BH|OM|LB|MA|DZ|TN|LY|SD|YE|SY|PS|MR)$"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/ar/privacy"
-    },
-    {
-      "source": "/terms",
-      "has": [
-        {
-          "type": "header",
-          "key": "x-vercel-ip-country",
-          "value": "^(SA|AE|EG|IQ|JO|KW|QA|BH|OM|LB|MA|DZ|TN|LY|SD|YE|SY|PS|MR)$"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/ar/terms"
-    },
-    {
-      "source": "/contact",
-      "has": [
-        {
-          "type": "header",
-          "key": "x-vercel-ip-country",
-          "value": "^(SA|AE|EG|IQ|JO|KW|QA|BH|OM|LB|MA|DZ|TN|LY|SD|YE|SY|PS|MR)$"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/ar/contact"
-    },
-    {
-      "source": "/",
-      "has": [
-        {
-          "type": "header",
-          "key": "x-vercel-ip-country",
-          "value": "^(PK)$"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/ur"
-    },
-    {
-      "source": "/blog",
-      "has": [
-        {
-          "type": "header",
-          "key": "x-vercel-ip-country",
-          "value": "^(PK)$"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/ur/blog"
-    },
-    {
-      "source": "/blog/:slug",
-      "has": [
-        {
-          "type": "header",
-          "key": "x-vercel-ip-country",
-          "value": "^(PK)$"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/ur/blog/:slug"
-    },
-    {
-      "source": "/privacy",
-      "has": [
-        {
-          "type": "header",
-          "key": "x-vercel-ip-country",
-          "value": "^(PK)$"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/ur/privacy"
-    },
-    {
-      "source": "/terms",
-      "has": [
-        {
-          "type": "header",
-          "key": "x-vercel-ip-country",
-          "value": "^(PK)$"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/ur/terms"
-    },
-    {
-      "source": "/contact",
-      "has": [
-        {
-          "type": "header",
-          "key": "x-vercel-ip-country",
-          "value": "^(PK)$"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/ur/contact"
-    },
-    {
-      "source": "/",
-      "has": [
-        {
-          "type": "header",
-          "key": "x-vercel-ip-country",
-          "value": "^(BD)$"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/bn"
-    },
-    {
-      "source": "/blog",
-      "has": [
-        {
-          "type": "header",
-          "key": "x-vercel-ip-country",
-          "value": "^(BD)$"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/bn/blog"
-    },
-    {
-      "source": "/blog/:slug",
-      "has": [
-        {
-          "type": "header",
-          "key": "x-vercel-ip-country",
-          "value": "^(BD)$"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/bn/blog/:slug"
-    },
-    {
-      "source": "/privacy",
-      "has": [
-        {
-          "type": "header",
-          "key": "x-vercel-ip-country",
-          "value": "^(BD)$"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/bn/privacy"
-    },
-    {
-      "source": "/terms",
-      "has": [
-        {
-          "type": "header",
-          "key": "x-vercel-ip-country",
-          "value": "^(BD)$"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/bn/terms"
-    },
-    {
-      "source": "/contact",
-      "has": [
-        {
-          "type": "header",
-          "key": "x-vercel-ip-country",
-          "value": "^(BD)$"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/bn/contact"
-    },
-    {
-      "source": "/",
-      "has": [
-        {
-          "type": "header",
-          "key": "x-vercel-ip-country",
-          "value": "^(CN|TW|HK|MO)$"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/zh"
-    },
-    {
-      "source": "/blog",
-      "has": [
-        {
-          "type": "header",
-          "key": "x-vercel-ip-country",
-          "value": "^(CN|TW|HK|MO)$"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/zh/blog"
-    },
-    {
-      "source": "/blog/:slug",
-      "has": [
-        {
-          "type": "header",
-          "key": "x-vercel-ip-country",
-          "value": "^(CN|TW|HK|MO)$"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/zh/blog/:slug"
-    },
-    {
-      "source": "/privacy",
-      "has": [
-        {
-          "type": "header",
-          "key": "x-vercel-ip-country",
-          "value": "^(CN|TW|HK|MO)$"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/zh/privacy"
-    },
-    {
-      "source": "/terms",
-      "has": [
-        {
-          "type": "header",
-          "key": "x-vercel-ip-country",
-          "value": "^(CN|TW|HK|MO)$"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/zh/terms"
-    },
-    {
-      "source": "/contact",
-      "has": [
-        {
-          "type": "header",
-          "key": "x-vercel-ip-country",
-          "value": "^(CN|TW|HK|MO)$"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/zh/contact"
-    },
-    {
-      "source": "/",
-      "has": [
-        {
-          "type": "header",
-          "key": "x-vercel-ip-country",
-          "value": "^(ES|MX|AR|CO|CL|PE|VE|EC|GT|CU|BO|DO|HN|PY|SV|NI|CR|PA|UY|PR)$"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/es"
-    },
-    {
-      "source": "/blog",
-      "has": [
-        {
-          "type": "header",
-          "key": "x-vercel-ip-country",
-          "value": "^(ES|MX|AR|CO|CL|PE|VE|EC|GT|CU|BO|DO|HN|PY|SV|NI|CR|PA|UY|PR)$"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/es/blog"
-    },
-    {
-      "source": "/blog/:slug",
-      "has": [
-        {
-          "type": "header",
-          "key": "x-vercel-ip-country",
-          "value": "^(ES|MX|AR|CO|CL|PE|VE|EC|GT|CU|BO|DO|HN|PY|SV|NI|CR|PA|UY|PR)$"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/es/blog/:slug"
-    },
-    {
-      "source": "/privacy",
-      "has": [
-        {
-          "type": "header",
-          "key": "x-vercel-ip-country",
-          "value": "^(ES|MX|AR|CO|CL|PE|VE|EC|GT|CU|BO|DO|HN|PY|SV|NI|CR|PA|UY|PR)$"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/es/privacy"
-    },
-    {
-      "source": "/terms",
-      "has": [
-        {
-          "type": "header",
-          "key": "x-vercel-ip-country",
-          "value": "^(ES|MX|AR|CO|CL|PE|VE|EC|GT|CU|BO|DO|HN|PY|SV|NI|CR|PA|UY|PR)$"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/es/terms"
-    },
-    {
-      "source": "/contact",
-      "has": [
-        {
-          "type": "header",
-          "key": "x-vercel-ip-country",
-          "value": "^(ES|MX|AR|CO|CL|PE|VE|EC|GT|CU|BO|DO|HN|PY|SV|NI|CR|PA|UY|PR)$"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/es/contact"
-    },
-    {
-      "source": "/",
-      "has": [
-        {
-          "type": "header",
-          "key": "x-vercel-ip-country",
-          "value": "^(FR|MC|SN|CI|CM|ML|BF|NE|TD|GN|BJ|TG|GA|MG|CD|HT)$"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/fr"
-    },
-    {
-      "source": "/blog",
-      "has": [
-        {
-          "type": "header",
-          "key": "x-vercel-ip-country",
-          "value": "^(FR|MC|SN|CI|CM|ML|BF|NE|TD|GN|BJ|TG|GA|MG|CD|HT)$"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/fr/blog"
-    },
-    {
-      "source": "/blog/:slug",
-      "has": [
-        {
-          "type": "header",
-          "key": "x-vercel-ip-country",
-          "value": "^(FR|MC|SN|CI|CM|ML|BF|NE|TD|GN|BJ|TG|GA|MG|CD|HT)$"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/fr/blog/:slug"
-    },
-    {
-      "source": "/privacy",
-      "has": [
-        {
-          "type": "header",
-          "key": "x-vercel-ip-country",
-          "value": "^(FR|MC|SN|CI|CM|ML|BF|NE|TD|GN|BJ|TG|GA|MG|CD|HT)$"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/fr/privacy"
-    },
-    {
-      "source": "/terms",
-      "has": [
-        {
-          "type": "header",
-          "key": "x-vercel-ip-country",
-          "value": "^(FR|MC|SN|CI|CM|ML|BF|NE|TD|GN|BJ|TG|GA|MG|CD|HT)$"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/fr/terms"
-    },
-    {
-      "source": "/contact",
-      "has": [
-        {
-          "type": "header",
-          "key": "x-vercel-ip-country",
-          "value": "^(FR|MC|SN|CI|CM|ML|BF|NE|TD|GN|BJ|TG|GA|MG|CD|HT)$"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/fr/contact"
-    },
-    {
-      "source": "/",
-      "has": [
-        {
-          "type": "header",
-          "key": "x-vercel-ip-country",
-          "value": "^(BR|PT|AO|MZ)$"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/pt"
-    },
-    {
-      "source": "/blog",
-      "has": [
-        {
-          "type": "header",
-          "key": "x-vercel-ip-country",
-          "value": "^(BR|PT|AO|MZ)$"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/pt/blog"
-    },
-    {
-      "source": "/blog/:slug",
-      "has": [
-        {
-          "type": "header",
-          "key": "x-vercel-ip-country",
-          "value": "^(BR|PT|AO|MZ)$"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/pt/blog/:slug"
-    },
-    {
-      "source": "/privacy",
-      "has": [
-        {
-          "type": "header",
-          "key": "x-vercel-ip-country",
-          "value": "^(BR|PT|AO|MZ)$"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/pt/privacy"
-    },
-    {
-      "source": "/terms",
-      "has": [
-        {
-          "type": "header",
-          "key": "x-vercel-ip-country",
-          "value": "^(BR|PT|AO|MZ)$"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/pt/terms"
-    },
-    {
-      "source": "/contact",
-      "has": [
-        {
-          "type": "header",
-          "key": "x-vercel-ip-country",
-          "value": "^(BR|PT|AO|MZ)$"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/pt/contact"
-    },
-    {
-      "source": "/",
-      "has": [
-        {
-          "type": "header",
-          "key": "x-vercel-ip-country",
-          "value": "^(RU|BY|KZ|KG)$"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/ru"
-    },
-    {
-      "source": "/blog",
-      "has": [
-        {
-          "type": "header",
-          "key": "x-vercel-ip-country",
-          "value": "^(RU|BY|KZ|KG)$"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/ru/blog"
-    },
-    {
-      "source": "/blog/:slug",
-      "has": [
-        {
-          "type": "header",
-          "key": "x-vercel-ip-country",
-          "value": "^(RU|BY|KZ|KG)$"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/ru/blog/:slug"
-    },
-    {
-      "source": "/privacy",
-      "has": [
-        {
-          "type": "header",
-          "key": "x-vercel-ip-country",
-          "value": "^(RU|BY|KZ|KG)$"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/ru/privacy"
-    },
-    {
-      "source": "/terms",
-      "has": [
-        {
-          "type": "header",
-          "key": "x-vercel-ip-country",
-          "value": "^(RU|BY|KZ|KG)$"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/ru/terms"
-    },
-    {
-      "source": "/contact",
-      "has": [
-        {
-          "type": "header",
-          "key": "x-vercel-ip-country",
-          "value": "^(RU|BY|KZ|KG)$"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/ru/contact"
-    },
-    {
-      "source": "/",
-      "has": [
-        {
-          "type": "header",
-          "key": "accept-language",
-          "value": "^zh"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/zh"
-    },
-    {
-      "source": "/blog",
-      "has": [
-        {
-          "type": "header",
-          "key": "accept-language",
-          "value": "^zh"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/zh/blog"
-    },
-    {
-      "source": "/blog/:slug",
-      "has": [
-        {
-          "type": "header",
-          "key": "accept-language",
-          "value": "^zh"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/zh/blog/:slug"
-    },
-    {
-      "source": "/privacy",
-      "has": [
-        {
-          "type": "header",
-          "key": "accept-language",
-          "value": "^zh"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/zh/privacy"
-    },
-    {
-      "source": "/terms",
-      "has": [
-        {
-          "type": "header",
-          "key": "accept-language",
-          "value": "^zh"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/zh/terms"
-    },
-    {
-      "source": "/contact",
-      "has": [
-        {
-          "type": "header",
-          "key": "accept-language",
-          "value": "^zh"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/zh/contact"
-    },
-    {
-      "source": "/",
-      "has": [
-        {
-          "type": "header",
-          "key": "accept-language",
-          "value": "^hi"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/hi"
-    },
-    {
-      "source": "/blog",
-      "has": [
-        {
-          "type": "header",
-          "key": "accept-language",
-          "value": "^hi"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/hi/blog"
-    },
-    {
-      "source": "/blog/:slug",
-      "has": [
-        {
-          "type": "header",
-          "key": "accept-language",
-          "value": "^hi"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/hi/blog/:slug"
-    },
-    {
-      "source": "/privacy",
-      "has": [
-        {
-          "type": "header",
-          "key": "accept-language",
-          "value": "^hi"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/hi/privacy"
-    },
-    {
-      "source": "/terms",
-      "has": [
-        {
-          "type": "header",
-          "key": "accept-language",
-          "value": "^hi"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/hi/terms"
-    },
-    {
-      "source": "/contact",
-      "has": [
-        {
-          "type": "header",
-          "key": "accept-language",
-          "value": "^hi"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/hi/contact"
-    },
-    {
-      "source": "/",
-      "has": [
-        {
-          "type": "header",
-          "key": "accept-language",
-          "value": "^es"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/es"
-    },
-    {
-      "source": "/blog",
-      "has": [
-        {
-          "type": "header",
-          "key": "accept-language",
-          "value": "^es"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/es/blog"
-    },
-    {
-      "source": "/blog/:slug",
-      "has": [
-        {
-          "type": "header",
-          "key": "accept-language",
-          "value": "^es"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/es/blog/:slug"
-    },
-    {
-      "source": "/privacy",
-      "has": [
-        {
-          "type": "header",
-          "key": "accept-language",
-          "value": "^es"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/es/privacy"
-    },
-    {
-      "source": "/terms",
-      "has": [
-        {
-          "type": "header",
-          "key": "accept-language",
-          "value": "^es"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/es/terms"
-    },
-    {
-      "source": "/contact",
-      "has": [
-        {
-          "type": "header",
-          "key": "accept-language",
-          "value": "^es"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/es/contact"
-    },
-    {
-      "source": "/",
-      "has": [
-        {
-          "type": "header",
-          "key": "accept-language",
-          "value": "^fr"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/fr"
-    },
-    {
-      "source": "/blog",
-      "has": [
-        {
-          "type": "header",
-          "key": "accept-language",
-          "value": "^fr"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/fr/blog"
-    },
-    {
-      "source": "/blog/:slug",
-      "has": [
-        {
-          "type": "header",
-          "key": "accept-language",
-          "value": "^fr"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/fr/blog/:slug"
-    },
-    {
-      "source": "/privacy",
-      "has": [
-        {
-          "type": "header",
-          "key": "accept-language",
-          "value": "^fr"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/fr/privacy"
-    },
-    {
-      "source": "/terms",
-      "has": [
-        {
-          "type": "header",
-          "key": "accept-language",
-          "value": "^fr"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/fr/terms"
-    },
-    {
-      "source": "/contact",
-      "has": [
-        {
-          "type": "header",
-          "key": "accept-language",
-          "value": "^fr"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/fr/contact"
-    },
-    {
-      "source": "/",
-      "has": [
-        {
-          "type": "header",
-          "key": "accept-language",
-          "value": "^ar"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/ar"
-    },
-    {
-      "source": "/blog",
-      "has": [
-        {
-          "type": "header",
-          "key": "accept-language",
-          "value": "^ar"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/ar/blog"
-    },
-    {
-      "source": "/blog/:slug",
-      "has": [
-        {
-          "type": "header",
-          "key": "accept-language",
-          "value": "^ar"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/ar/blog/:slug"
-    },
-    {
-      "source": "/privacy",
-      "has": [
-        {
-          "type": "header",
-          "key": "accept-language",
-          "value": "^ar"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/ar/privacy"
-    },
-    {
-      "source": "/terms",
-      "has": [
-        {
-          "type": "header",
-          "key": "accept-language",
-          "value": "^ar"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/ar/terms"
-    },
-    {
-      "source": "/contact",
-      "has": [
-        {
-          "type": "header",
-          "key": "accept-language",
-          "value": "^ar"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/ar/contact"
-    },
-    {
-      "source": "/",
-      "has": [
-        {
-          "type": "header",
-          "key": "accept-language",
-          "value": "^bn"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/bn"
-    },
-    {
-      "source": "/blog",
-      "has": [
-        {
-          "type": "header",
-          "key": "accept-language",
-          "value": "^bn"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/bn/blog"
-    },
-    {
-      "source": "/blog/:slug",
-      "has": [
-        {
-          "type": "header",
-          "key": "accept-language",
-          "value": "^bn"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/bn/blog/:slug"
-    },
-    {
-      "source": "/privacy",
-      "has": [
-        {
-          "type": "header",
-          "key": "accept-language",
-          "value": "^bn"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/bn/privacy"
-    },
-    {
-      "source": "/terms",
-      "has": [
-        {
-          "type": "header",
-          "key": "accept-language",
-          "value": "^bn"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/bn/terms"
-    },
-    {
-      "source": "/contact",
-      "has": [
-        {
-          "type": "header",
-          "key": "accept-language",
-          "value": "^bn"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/bn/contact"
-    },
-    {
-      "source": "/",
-      "has": [
-        {
-          "type": "header",
-          "key": "accept-language",
-          "value": "^pt"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/pt"
-    },
-    {
-      "source": "/blog",
-      "has": [
-        {
-          "type": "header",
-          "key": "accept-language",
-          "value": "^pt"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/pt/blog"
-    },
-    {
-      "source": "/blog/:slug",
-      "has": [
-        {
-          "type": "header",
-          "key": "accept-language",
-          "value": "^pt"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/pt/blog/:slug"
-    },
-    {
-      "source": "/privacy",
-      "has": [
-        {
-          "type": "header",
-          "key": "accept-language",
-          "value": "^pt"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/pt/privacy"
-    },
-    {
-      "source": "/terms",
-      "has": [
-        {
-          "type": "header",
-          "key": "accept-language",
-          "value": "^pt"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/pt/terms"
-    },
-    {
-      "source": "/contact",
-      "has": [
-        {
-          "type": "header",
-          "key": "accept-language",
-          "value": "^pt"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/pt/contact"
-    },
-    {
-      "source": "/",
-      "has": [
-        {
-          "type": "header",
-          "key": "accept-language",
-          "value": "^ru"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/ru"
-    },
-    {
-      "source": "/blog",
-      "has": [
-        {
-          "type": "header",
-          "key": "accept-language",
-          "value": "^ru"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/ru/blog"
-    },
-    {
-      "source": "/blog/:slug",
-      "has": [
-        {
-          "type": "header",
-          "key": "accept-language",
-          "value": "^ru"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/ru/blog/:slug"
-    },
-    {
-      "source": "/privacy",
-      "has": [
-        {
-          "type": "header",
-          "key": "accept-language",
-          "value": "^ru"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/ru/privacy"
-    },
-    {
-      "source": "/terms",
-      "has": [
-        {
-          "type": "header",
-          "key": "accept-language",
-          "value": "^ru"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/ru/terms"
-    },
-    {
-      "source": "/contact",
-      "has": [
-        {
-          "type": "header",
-          "key": "accept-language",
-          "value": "^ru"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/ru/contact"
-    },
-    {
-      "source": "/",
-      "has": [
-        {
-          "type": "header",
-          "key": "accept-language",
-          "value": "^ur"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/ur"
-    },
-    {
-      "source": "/blog",
-      "has": [
-        {
-          "type": "header",
-          "key": "accept-language",
-          "value": "^ur"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/ur/blog"
-    },
-    {
-      "source": "/blog/:slug",
-      "has": [
-        {
-          "type": "header",
-          "key": "accept-language",
-          "value": "^ur"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/ur/blog/:slug"
-    },
-    {
-      "source": "/privacy",
-      "has": [
-        {
-          "type": "header",
-          "key": "accept-language",
-          "value": "^ur"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/ur/privacy"
-    },
-    {
-      "source": "/terms",
-      "has": [
-        {
-          "type": "header",
-          "key": "accept-language",
-          "value": "^ur"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/ur/terms"
-    },
-    {
-      "source": "/contact",
-      "has": [
-        {
-          "type": "header",
-          "key": "accept-language",
-          "value": "^ur"
-        }
-      ],
-      "missing": [
-        {
-          "type": "cookie",
-          "key": "ic_lang"
-        },
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|facebookexternalhit|preview).*"
-        }
-      ],
-      "destination": "/ur/contact"
-    },
-    {
-      "source": "/",
-      "destination": "/en"
-    },
-    {
-      "source": "/blog",
-      "destination": "/en/blog"
-    },
-    {
-      "source": "/blog/:slug",
-      "destination": "/en/blog/:slug"
-    },
-    {
-      "source": "/privacy",
-      "destination": "/en/privacy"
-    },
-    {
-      "source": "/terms",
-      "destination": "/en/terms"
-    },
-    {
-      "source": "/contact",
-      "destination": "/en/contact"
     }
   ]
 }
