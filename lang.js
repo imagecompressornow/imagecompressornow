@@ -4,7 +4,7 @@
   'use strict';
   const d = document.querySelector('.lang');
   if (!d) return;
-  const PREFIX = /^\/(zh|hi|es|fr|ar|bn|pt|ru|ur)(\/.*)?$/;
+  const PREFIX = /^\/(en|zh|hi|es|fr|ar|bn|pt|ru|ur)(\/.*)?$/;
   d.addEventListener('click', (e) => {
     const a = e.target.closest('a[data-lang]');
     if (!a) return;

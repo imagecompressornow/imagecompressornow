@@ -2972,6 +2972,30 @@
         }
       ],
       "destination": "/ur/contact"
+    },
+    {
+      "source": "/",
+      "destination": "/en"
+    },
+    {
+      "source": "/blog",
+      "destination": "/en/blog"
+    },
+    {
+      "source": "/blog/:slug",
+      "destination": "/en/blog/:slug"
+    },
+    {
+      "source": "/privacy",
+      "destination": "/en/privacy"
+    },
+    {
+      "source": "/terms",
+      "destination": "/en/terms"
+    },
+    {
+      "source": "/contact",
+      "destination": "/en/contact"
     }
   ]
 }
