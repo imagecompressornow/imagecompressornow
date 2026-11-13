@@ -295,7 +295,7 @@
         out = await viaMain(item, source, type, opts);
       }
       if (isStale(job)) return;
-      item.result = finish(item, out, type);
+      item.result = await finish(item, out, type);
     } catch (e) {
       if (isStale(job)) return;
       item.error = localizeError(e);
@@ -304,16 +304,125 @@
     updateSummary();
   }
 
-  // Never hand back a bigger file when nothing was changed on purpose.
-  function finish(item, out, type) {
+  // ---------- metadata removal for files that are handed back without re-encoding ----------
+  // Rotation lives in the EXIF Orientation tag, so it is kept as a tiny EXIF block (or we fall back to re-encoding).
+  function exifOrientation(b, start, end) {
+    if (end - start < 14) return 1;
+    try {
+      const le = b[start] === 0x49;
+      const dv = new DataView(b.buffer, b.byteOffset + start, end - start);
+      if (dv.getUint16(2, le) !== 42) return 1;
+      const ifd = dv.getUint32(4, le);
+      const n = dv.getUint16(ifd, le);
+      for (let i = 0; i < n; i++) {
+        const e = ifd + 2 + i * 12;
+        if (dv.getUint16(e, le) === 0x0112) { const v = dv.getUint16(e + 8, le); return v >= 1 && v <= 8 ? v : 1; }
+      }
+    } catch (_) { /* malformed EXIF: treat as upright */ }
+    return 1;
+  }
+
+  function stripJpeg(b) {
+    if (b[0] !== 0xff || b[1] !== 0xd8) return null;
+    const out = [b.subarray(0, 2)];
+    let i = 2, orient = 1, insertAt = 1;
+    while (i + 4 <= b.length) {
+      if (b[i] !== 0xff) return null;
+      const m = b[i + 1];
+      if (m === 0xff) { i++; continue; }
+      if (m === 0xda || m === 0xd9) break; // start of scan: the rest is image data
+      if (m === 0x01 || (m >= 0xd0 && m <= 0xd8)) { out.push(b.subarray(i, i + 2)); i += 2; continue; }
+      const len = (b[i + 2] << 8) | b[i + 3];
+      if (len < 2 || i + 2 + len > b.length) return null;
+      if (m === 0xe1 || m === 0xe3 || m === 0xed || m === 0xfe) { // EXIF/XMP, Kodak meta, Photoshop/IPTC, comments
+        if (m === 0xe1 && b[i + 4] === 0x45 && b[i + 5] === 0x78 && b[i + 6] === 0x69 && b[i + 7] === 0x66 && orient === 1) {
+          orient = exifOrientation(b, i + 10, i + 2 + len);
+        }
+      } else {
+        out.push(b.subarray(i, i + 2 + len));
+        if (m === 0xe0 && out.length === 2) insertAt = 2; // keep JFIF first
+      }
+      i += 2 + len;
+    }
+    if (orient > 1) {
+      out.splice(insertAt, 0, Uint8Array.of(0xff, 0xe1, 0x00, 0x22, 0x45, 0x78, 0x69, 0x66, 0, 0,
+        0x4d, 0x4d, 0, 42, 0, 0, 0, 8, 0, 1, 0x01, 0x12, 0, 3, 0, 0, 0, 1, 0, orient, 0, 0, 0, 0, 0, 0));
+    }
+    out.push(b.subarray(i));
+    return out;
+  }
+
+  function stripPng(b) {
+    const sig = [137, 80, 78, 71, 13, 10, 26, 10];
+    for (let k = 0; k < 8; k++) if (b[k] !== sig[k]) return null;
+    const dv = new DataView(b.buffer, b.byteOffset, b.length);
+    const out = [b.subarray(0, 8)];
+    let i = 8;
+    while (i + 12 <= b.length) {
+      const len = dv.getUint32(i);
+      const type = String.fromCharCode(b[i + 4], b[i + 5], b[i + 6], b[i + 7]);
+      const end = i + 12 + len;
+      if (end > b.length) return null;
+      if (type === 'eXIf') { if (exifOrientation(b, i + 8, i + 8 + len) > 1) return null; }
+      else if (type !== 'tEXt' && type !== 'zTXt' && type !== 'iTXt' && type !== 'tIME') out.push(b.subarray(i, end));
+      i = end;
+      if (type === 'IEND') break;
+    }
+    return out;
+  }
+
+  function stripWebp(b) {
+    const tag = (o) => String.fromCharCode(b[o], b[o + 1], b[o + 2], b[o + 3]);
+    if (b.length < 20 || tag(0) !== 'RIFF' || tag(8) !== 'WEBP') return null;
+    const dv = new DataView(b.buffer, b.byteOffset, b.length);
+    const parts = [];
+    let i = 12, size = 4;
+    while (i + 8 <= b.length) {
+      const t = tag(i), len = dv.getUint32(i + 4, true);
+      const end = i + 8 + len + (len & 1);
+      if (i + 8 + len > b.length) return null;
+      const stop = Math.min(end, b.length);
+      if (t === 'EXIF') {
+        const s = i + 8, off = (b[s] === 0x45 && b[s + 1] === 0x78) ? s + 6 : s;
+        if (exifOrientation(b, off, i + 8 + len) > 1) return null;
+      } else if (t !== 'XMP ') {
+        const chunk = t === 'VP8X' ? b.slice(i, stop) : b.subarray(i, stop);
+        if (t === 'VP8X') chunk[8] &= ~0x0c; // clear the EXIF and XMP flags
+        parts.push(chunk);
+        size += chunk.length;
+      }
+      i = end;
+    }
+    const head = new Uint8Array(12);
+    head.set([0x52, 0x49, 0x46, 0x46], 0);
+    new DataView(head.buffer).setUint32(4, size, true);
+    head.set([0x57, 0x45, 0x42, 0x50], 8);
+    return [head, ...parts];
+  }
+
+  async function stripMeta(file) {
+    try {
+      const b = new Uint8Array(await file.arrayBuffer());
+      let parts = null;
+      if (file.type === 'image/jpeg') parts = stripJpeg(b);
+      else if (file.type === 'image/png') parts = stripPng(b);
+      else if (file.type === 'image/webp') parts = stripWebp(b);
+      return parts ? new Blob(parts, { type: file.type }) : null;
+    } catch (_) { return null; }
+  }
+
+  // Never hand back a bigger file when nothing was changed on purpose. The original is returned only after its
+  // metadata (camera, GPS, comments) has been removed without re-encoding; if that is not possible, the
+  // re-encoded (metadata-free) output is used instead.
+  async function finish(item, out, type) {
     let blob = out.blob;
     if (!blob) throw new Error('This browser could not encode the image');
     if (blob.type && blob.type !== type) type = blob.type; // browser fell back to another format
     const untouched = !item.source && type === item.file.type && out.w === out.w0 && out.h === out.h0;
     let note = '';
     if (untouched && blob.size >= item.file.size) {
-      blob = item.file;
-      note = 'optimized';
+      const clean = await stripMeta(item.file);
+      if (clean && clean.size <= item.file.size) { blob = clean; note = 'optimized'; }
     }
     const base = item.file.name.replace(/\.[^.]+$/, '');
     return { blob, thumb: out.thumb, name: `${base}.${EXT[type] || 'jpg'}`, note };
